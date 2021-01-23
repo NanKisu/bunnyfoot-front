@@ -2,7 +2,6 @@
   <div class="container">
     <div id="div1">
         <video autoplay="autoplay"></video>
-        <button>캡쳐 &amp; 디스플레이</button>
         <canvas></canvas>
     </div>
   </div>
@@ -37,7 +36,7 @@ export default {
       navigator.getUserMedia(div1, this.success, this.fail)
     },
     success (stream) {
-      this.video.src = window.URL.createObjectURL(stream)
+      this.video.srcObject = stream
     },
     fail (error) {
       alert('no camera! check errorcode :' + error)
