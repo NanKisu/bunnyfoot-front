@@ -18,7 +18,7 @@ export default {
   },
   methods: {
     clickMainStart () {
-      this.$router.push('/imageSelect')
+      this.$router.push('/seletMethod')
     }
   }
 }
