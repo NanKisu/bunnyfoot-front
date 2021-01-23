@@ -23,10 +23,6 @@ export default {
       let canvas = window.canvas = document.querySelector('canvas')
       canvas.width = 480
       canvas.height = 360
-      let button = document.querySelector('button')
-      button.onclick = function () {
-        canvas.getContext('2d').drawImage(this.video, 0, 0, canvas.width, canvas.height)
-      }
       this.video = document.querySelector('video')
       navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia
       let div1 = {
