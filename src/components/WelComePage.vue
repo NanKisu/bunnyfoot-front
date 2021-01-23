@@ -1,8 +1,10 @@
 <template>
   <div class="container">
     <div class="title"></div>
-    <div class="main"></div>
-    <div class="start"></div>
+    <div @click="clickMainStart">
+      <div class="main"></div>
+      <div class="start"></div>
+    </div>
   </div>
 </template>
 
@@ -12,6 +14,11 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods: {
+    clickMainStart () {
+      this.$router.push('/imageSelect')
     }
   }
 }
