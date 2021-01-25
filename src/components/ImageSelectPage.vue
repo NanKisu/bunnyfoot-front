@@ -23,7 +23,7 @@ export default {
       let img = e.target.files[0]
       let fd = new FormData()
       fd.append('image', img)
-      axios.post('http://localhost:8080/imageUpload', fd)
+      axios.post('/server/imageUpload', fd)
         .then(resp => {
           this.imagePath = resp.data.path
         })
