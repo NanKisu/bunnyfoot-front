@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="title"></div>
-    <div @click="clickMainStart">
+    <div @click="clickMainStart(event)">
       <div class="main"></div>
       <div class="start"></div>
     </div>
@@ -13,12 +13,11 @@ export default {
   name: 'WelComePage',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
     }
   },
   methods: {
-    clickMainStart () {
-      this.$router.push('/seletMethod')
+    clickMainStart (event) {
+      this.$router.push('/imageSelect')
     }
   }
 }
@@ -65,5 +64,6 @@ body {
   background-image: url("/static/welcome_start_image.png");
   background-repeat: no-repeat;
   background-position: center;
+  transition-duration: 0.5s;
 }
 </style>

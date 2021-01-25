@@ -26,8 +26,8 @@ export default {
       this.video = document.querySelector('video')
       navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia
       let div1 = {
-        audio: false,
-        video: true
+        audio: true,
+        video: false
       }
       navigator.getUserMedia(div1, this.success, this.fail)
     },
