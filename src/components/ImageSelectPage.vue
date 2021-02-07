@@ -1,5 +1,6 @@
 <template>
   <div class="container">
+    <input type="text" placeholder="토끼의 이름은?"/>
     <h4>이쁜 토끼 발바닥 사진을 찍어주세요</h4>
     <div class="sample_image"></div>
     <label id="button" for="camera">
@@ -23,10 +24,11 @@ export default {
       let img = e.target.files[0]
       let fd = new FormData()
       fd.append('image', img)
-      axios.post('/server/imageUpload', fd)
+      axios.post('http://localhost:8080/imageUpload', fd)
         .then(resp => {
           this.imagePath = resp.data.path
         })
+      this.$router.push('/qestion')
     }
   }
 }
