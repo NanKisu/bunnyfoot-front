@@ -1,8 +1,9 @@
 <template>
   <div class="container">
+    안녕
     <h4>{{questions[questionIndex].question}}</h4>
     <div v-for="answer in questions[questionIndex].answers" :key="answer.value">
-      <input type="radio" name="answer" :value="answer.value" v-model="questions[questionIndex].selectedAnswer" @change="answerChange($event)"/>
+      <input type="radio" name="answer" :value="answer.value" v-model="questions[questionIndex].selectedAnswer" @change="answerChange"/>
       {{answer.label}}
     </div>
   </div>

@@ -28,7 +28,7 @@ export default {
         .then(resp => {
           this.imagePath = resp.data.path
         })
-      this.$router.push('/qestion')
+      this.$router.push('/question')
     }
   }
 }
@@ -44,7 +44,7 @@ h4 {
   text-align: center;
 }
 
-input {
+input[type="file"] {
   visibility: hidden;
 }
 
