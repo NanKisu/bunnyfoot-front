@@ -1,12 +1,19 @@
 <template>
   <div class="container">
-    <input type="text" placeholder="토끼의 이름은?"/>
-    <h4>이쁜 토끼 발바닥 사진을 찍어주세요</h4>
+    <!-- <input type="text" placeholder="토끼의 이름은?"/> -->
+    <span id="msg1">내 토끼의 발바닥 사진을 업로드하시면<br>테스트가 시작됩니다.</span>
     <div class="sample_image"></div>
-    <label id="button" for="camera">
-      사진 가져오기
-    </label>
-    <input type="file" id="camera" name="camera" capture="camera" accept="image/*" @change="uploadImage"/>
+
+    <div>
+      <v-btn depressed rounded x-large color="#C4E3FF" class="btnMain btnPink">업로드</v-btn>
+      <!-- <label id="uploadBtnLabel" class="button" for="camera">
+        업로드
+      </label> -->
+      <input type="file" id="uploadBtn" name="camera" capture="camera" accept="image/*" @change="uploadImage"/>
+
+      <v-btn depressed rounded x-large color="#C4E3FF" class="btnMain btnBlue" @click="clickSkip(event)">그냥 할래요</v-btn>
+      <input type="button" id="skipBtn">
+    </div>
   </div>
 </template>
 
@@ -14,7 +21,7 @@
 import axios from 'axios'
 
 export default {
-  name: 'ImageSelectPage',
+  name: 'guidePage',
   data () {
     return {
     }
@@ -28,6 +35,10 @@ export default {
         .then(resp => {
           this.imagePath = resp.data.path
         })
+      this.$router.push('/question')
+    },
+
+    clickSkip (e) {
       this.$router.push('/question')
     }
   }
@@ -44,6 +55,11 @@ h4 {
   text-align: center;
 }
 
+#msg1 {
+  margin-top: 2vh;
+  text-align: center;
+}
+
 input[type="file"] {
   visibility: hidden;
 }
@@ -53,7 +69,7 @@ input[type="file"] {
   margin-top: 5vh;
   left: 50%;
   margin-left: -48%;
-  height: 60vh;
+  height: 50vh;
   width: 96%;
   background-image: url("/static/image_sample_cartoon.png");
   background-repeat: no-repeat;
@@ -61,7 +77,7 @@ input[type="file"] {
   background-size: cover;
 }
 
-#button {
+.button {
   display: block;
   position: relative;
   margin: 2vh 2vw;

@@ -1,9 +1,14 @@
 <template>
   <div class="container">
-    <div class="title"></div>
+    <!-- <div class="title"></div> -->
+    <h1 id="title">BBTI</h1>
     <div @click="clickMainStart(event)">
       <div class="main"></div>
-      <div class="start"></div>
+      <!-- <div class="start"></div> -->
+      <v-btn depressed rounded x-large color="#FEDEDF" class="btnMain">시작</v-btn>
+      <div id="msg1">
+        지금까지 {{ participant }} 마리가 참여해토
+      </div>
     </div>
   </div>
 </template>
@@ -13,11 +18,12 @@ export default {
   name: 'WelComePage',
   data () {
     return {
+      participant: 0
     }
   },
   methods: {
     clickMainStart (event) {
-      this.$router.push('/imageSelect')
+      this.$router.push('/guide')
     }
   }
 }
@@ -28,17 +34,14 @@ body {
   background-color: white !important;
 }
 
-.title {
-  position: relative;
+#title {
+  margin-top: 3vh;
+  text-align: center;
+}
+
+#msg1 {
+  text-align: center;
   margin-top: 5vh;
-  left: 50%;
-  margin-left: -50%;
-  height: 15vh;
-  width: 100%;
-  background-image: url("/static/welcome_title.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
 }
 
 .main {
@@ -54,16 +57,4 @@ body {
   background-size: contain;
 }
 
-.start {
-  position: relative;
-  margin-top: 0vh;
-  left: 50%;
-  margin-left: -50%;
-  height: 15vh;
-  width: 100%;
-  background-image: url("/static/welcome_start_image.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  transition-duration: 0.5s;
-}
 </style>
