@@ -2,7 +2,7 @@
   <div class="container">
     <!-- <div class="title"></div> -->
     <h1 id="title">BBTI</h1>
-    <div @click="clickMainStart(event)">
+    <div @click="clickMainStart()">
       <div class="main"></div>
       <!-- <div class="start"></div> -->
       <v-btn depressed rounded x-large color="#FEDEDF" class="btnMain">시작</v-btn>
@@ -22,7 +22,7 @@ export default {
     }
   },
   methods: {
-    clickMainStart (event) {
+    clickMainStart () {
       this.$router.push('/guide')
     }
   }

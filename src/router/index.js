@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import WelComePage from '@/components/WelComePage'
 import GuidePage from '@/components/GuidePage'
-import CheckUpload from '@/components/CheckUpload'
+import CheckUploadPage from '@/components/CheckUploadPage'
 // import ImageSelectPage from '@/components/ImageSelectPage'
 import QuestionPage from '@/components/QuestionPage'
 import ResultPage from '@/components/ResultPage'
@@ -28,9 +28,9 @@ export default new Router({
     //   component: ImageSelectPage
     // },
     {
-      path: '/checkUpload',
-      name: 'CheckUpload',
-      component: CheckUpload
+      path: '/check',
+      name: 'CheckUploadPage',
+      component: CheckUploadPage
     },
     {
       path: '/question',
