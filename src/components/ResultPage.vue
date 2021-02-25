@@ -18,7 +18,7 @@
 
     <v-btn>카카오톡 공유</v-btn>
     <v-btn>이미지 다운로드</v-btn>
-    <v-btn>다시 해보기</v-btn>
+    <v-btn @click="redo">다시 해보기</v-btn>
   </div>
 </template>
 
@@ -40,6 +40,10 @@ export default {
   methods: {
     getImgUrl () {
       return '/static/images/result_type_' + this.resultId + '.png'
+    },
+
+    redo () {
+      this.$router.push('/guide')
     }
   }
 }

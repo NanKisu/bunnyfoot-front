@@ -1,31 +1,33 @@
 <template>
-  <v-card id="cardCheck">
-    <v-card-title class="headline grey lighten-2">
-        사진을 확인해주세요
-    </v-card-title>
-
-    <slot></slot>
-
-    <v-divider></v-divider>
-
-    <v-card-actions>
-        <v-spacer></v-spacer>
-        <v-btn
-        color="primary"
-        text
-        @click="dialog = false"
-        >
-        시작
-        </v-btn>
-    </v-card-actions>
-    </v-card>
+<div>
+  <vue-modaltor  :visible="open" @hide="hideModal">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+      quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+      cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+      proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </vue-modaltor>
+  <button @click="open=true">modal-basic</button>
+</div>
 </template>
 
 <style scoped>
 
 </style>
 
+ 
 <script>
 export default {
+    data () {
+        return {
+            open: false
+        }
+    },
+    methods: {
+        hideModal() {
+            this.open = false
+        }
+    }
 }
 </script>

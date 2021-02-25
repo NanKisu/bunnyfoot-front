@@ -16,24 +16,11 @@
     </div>
 
     <!-- 사진 확인 -->
-    <v-card id="cardCheck" v-if="showCheck">
-      <v-card-title class="headline grey lighten-2">
-          사진을 확인해주세요
-      </v-card-title>
-
+    <vue-modaltor  :visible="showCheck" @hide="hideModal">
       <img :src=url id="check_img" />
-
-      <v-divider></v-divider>
-
-      <v-card-actions>
-          <v-spacer></v-spacer>
-          <v-btn color="primary" text @click="btnUploadImage">다시 선택</v-btn>
-          <v-spacer></v-spacer>
-          <v-btn color="primary" text @click="sendUploadImage">
-            시작
-          </v-btn>
-      </v-card-actions>
-    </v-card>
+      <v-btn color="primary" text @click="btnUploadImage">다시 선택</v-btn>
+      <v-btn color="primary" text @click="sendUploadImage">시작</v-btn>
+    </vue-modaltor>
 
   </div>
 </template>
@@ -55,6 +42,13 @@ export default {
     }
   },
   methods: {
+    // '업로드' 버튼 클릭
+    btnUploadImage () {
+      this.image = null
+      document.getElementById('uploadBtn').click()
+    },
+
+    // 사진 데이터 선택
     uploadImage (e) {
       this.img = e.target.files[0]
 
@@ -63,6 +57,7 @@ export default {
       this.showCheck = true
     },
 
+    // 사진 데이터 확인 후 전송
     sendUploadImage () {
       // this.showCheck = false
 
@@ -77,11 +72,11 @@ export default {
       this.goQuestion()
     },
 
-    btnUploadImage () {
-      this.image = null
-      document.getElementById('uploadBtn').click()
+    hideModal () {
+      this.showCheck = false
     },
 
+    // 질문 페이지로 이동
     goQuestion (e) {
       this.$router.push('/question')
     }
@@ -122,6 +117,7 @@ input[type="file"] {
 }
 
 #check_img {
+  position: relative;
   max-width: 96%;
 }
 
