@@ -1,7 +1,12 @@
 <template>
-  <div class="container">
+  <div class="container fontCookierun">
     <h4>{{ questionIndex + 1 }} / {{ questions.length }} </h4>
     <span>{{ questions[questionIndex] }}</span>
+
+    <div style="height: 50vh; text-align: center">
+      <img :src="getImgUrl()" style="max-height: 100%; max-width: 100%;"/>
+    </div>
+    <img :src="blah" >
 
     <div v-for="(item, index) in selections[questionIndex]" :key="index">
       <v-btn depressed rounded x-large class="btnMain" @click="selectAnswer(index)">
@@ -16,6 +21,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'QuestionPage',
   data () {
@@ -53,7 +59,9 @@ export default {
       //     selectedAnswer: ''
       //   },
       // ],
-      questionIndex: 0
+      questionIndex: 0,
+      img: null,
+      blah: null
     }
   },
   methods: {
@@ -69,9 +77,49 @@ export default {
       this.selectedAnswer.push(index)
       this.questionIndex++
       if (this.questionIndex + 1 > this.questions.length) {
-        // axios 호출
-        this.$router.push({ name: 'ResultPage', params: { resultId: 1 } })
+
+        // 업로드 이미지 가져오기
+        this.img = localStorage.getItem('uploadImage')
+        var file = this.dataURLtoFile(this.img,'image.png');
+        
+        var object = {};
+        let fd = new FormData()
+        fd.append('image', file)
+        fd.append('answers', this.selectedAnswer)
+
+        axios.post('http://localhost:8080/server/bbti', fd)
+        .then(resp => {
+          console.log(resp)
+          // this.imagePath = resp.data.path
+          // this.$router.push({ name: 'ResultPage', params: { resultId: 1 } })
+        })
+
+        
       }
+    },
+
+    dataURLtoFile(dataurl, filename) {
+ 
+        var arr = dataurl.split(','),
+            mime = arr[0].match(/:(.*?);/)[1],
+            bstr = atob(arr[1]), 
+            n = bstr.length, 
+            u8arr = new Uint8Array(n);
+            
+        while(n--){
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        
+        return new File([u8arr], filename, {type:mime});
+    },
+
+    getImgUrl () {
+      // 로컬스토리지 이미지 파일 확인용
+      // this.img = localStorage.getItem('uploadImage')
+      // var file = this.dataURLtoFile(this.img,'image.png');
+      // this.blah = URL.createObjectURL(file)
+
+      return '/static/images/question_' + (this.questionIndex + 1) + '.png'
     }
   }
 }

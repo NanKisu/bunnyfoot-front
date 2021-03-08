@@ -1,7 +1,9 @@
 <template>
   <div class="container">
     <!-- <input type="text" placeholder="토끼의 이름은?"/> -->
-    <span id="msg1">내 토끼의 발바닥 사진을 업로드하시면<br>테스트가 시작됩니다.</span>
+    <div id="msg1Wrapper">
+      <span id="msg1" class="fontCookierun">내 토끼의 발바닥 사진을 업로드하시면<br>테스트가 시작됩니다.</span>
+    </div>
     <div class="sample_image"></div>
 
     <div>
@@ -60,16 +62,25 @@ export default {
     // 사진 데이터 확인 후 전송
     sendUploadImage () {
       // this.showCheck = false
+      
+      const reader = new FileReader();
+      reader.readAsDataURL(this.img)
+      console.log("before: ")
+      // reader.readasdataurl
+      reader.onload = (e) => { 
+        localStorage.setItem('uploadImage', e.target.result)
+        this.goQuestion()
+      }
 
       // 이미지 s3 업로드
-      let fd = new FormData()
-      fd.append('image', this.img)
-      axios.post('http://localhost:8080/imageUpload', fd)
-        .then(resp => {
-          // this.imagePath = resp.data.path
-        })
-        
-      this.goQuestion()
+      // let fd = new FormData()
+      // fd.append('image', this.img)
+      // axios.post('http://localhost:8080/imageUpload', fd)
+      //   .then(resp => {
+      //     // this.imagePath = resp.data.path
+      //   })
+
+      
     },
 
     hideModal () {
@@ -94,10 +105,11 @@ h4 {
   text-align: center;
 }
 
-#msg1 {
-  margin-top: 2vh;
+#msg1Wrapper {
   text-align: center;
+  margin-top: 2vh;
 }
+
 
 input[type="file"] {
   display: none;
