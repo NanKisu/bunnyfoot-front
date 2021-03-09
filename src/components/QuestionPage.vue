@@ -74,7 +74,7 @@ export default {
         fd.append('image', file)
         fd.append('answers', this.selectedAnswer)
 
-        axios.post('http://localhost:8080/server/bbti', fd)
+        axios.post('http://13.209.196.50/server/bbti', fd)
         .then(resp => {
           console.log(resp)
           // this.$router.push({ name: 'ResultPage', params: { resultId: 1 } })
