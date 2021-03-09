@@ -1,27 +1,39 @@
 <template>
   <div class="container">
     <!-- <input type="text" placeholder="토끼의 이름은?"/> -->
-    <div id="msg1Wrapper">
-      <span id="msg1" class="fontCookierun">내 토끼의 발바닥 사진을 업로드하시면<br>테스트가 시작됩니다.</span>
+    <div class="topBbti">
+      <div class="msg">
+        <span class="fontNexonRegular">
+          내 토끼의 발바닥 사진을 올려주시면<br>결과에 반영할게요!<br><br>
+          아래 초록색 상자처럼<br><b>발바닥만</b> 잘라서 보내주세요!
+        </span>
+      </div>
     </div>
-    <div class="sample_image"></div>
 
-    <div>
-      <v-btn depressed rounded x-large color="#C4E3FF" class="btnMain btnPink"
-            @click="btnUploadImage">
-            업로드
-      </v-btn>
-      <input type="file" id="uploadBtn" name="camera" capture="camera" accept="image/*" @change="uploadImage"/>
+    <div class="mainBbti">
+      <div class="imgSection"></div>
+    </div>
 
-      <v-btn depressed rounded x-large color="#C4E3FF" class="btnMain btnBlue" @click="goQuestion">그냥 할래요</v-btn>
-      <input type="button" id="skipBtn">
+    <div class="bottomBbti">
+      <div class="btnWrapper fontNexonBold">
+        <v-btn depressed rounded x-large color="#cee6b4" class="btnMain"
+              @click="btnUploadImage">
+              업로드
+        </v-btn>
+        <input type="file" id="uploadBtn" name="camera" capture="camera" accept="image/*" @change="uploadImage"/>
+
+        <v-btn depressed rounded x-large color="#cee6b4" class="btnMain" @click="goQuestion">그냥 할래요</v-btn>
+        <input type="button" id="skipBtn">
+      </div>
     </div>
 
     <!-- 사진 확인 -->
     <vue-modaltor  :visible="showCheck" @hide="hideModal">
       <img :src=url id="check_img" />
-      <v-btn color="primary" text @click="btnUploadImage">다시 선택</v-btn>
-      <v-btn color="primary" text @click="sendUploadImage">시작</v-btn>
+      <div class="btnWrapper">
+        <v-btn color="primary" text @click="btnUploadImage">다시 선택</v-btn>
+        <v-btn color="primary" text @click="sendUploadImage">시작</v-btn>
+      </div>
     </vue-modaltor>
 
   </div>
@@ -105,27 +117,13 @@ h4 {
   text-align: center;
 }
 
-#msg1Wrapper {
-  text-align: center;
-  margin-top: 2vh;
-}
-
 
 input[type="file"] {
   display: none;
 }
 
-.sample_image {
-  position: relative;
-  margin-top: 5vh;
-  left: 50%;
-  margin-left: -48%;
-  height: 50vh;
-  width: 96%;
-  background-image: url("/static/image_sample_cartoon.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+.imgSection {
+  background-image: url("/static/images/guide_sample.png");
 }
 
 #check_img {

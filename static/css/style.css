@@ -1,3 +1,18 @@
+.topBbti {
+    height: 15vh;
+}
+
+.mainBbti {
+    height: 45vh;
+}
+
+.imgSection {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: contain;
+  }
+
 .btnWrapper {
     text-align: center;
 }
@@ -8,7 +23,6 @@
     max-width: 500px;
     height: 30vh;
 
-    font-family: "CookieRun-Regular";
     color: white;
     /* font-size: 3em; */
 }
@@ -27,6 +41,20 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 .fontYeoljeongdo {
     font-family: "RixYeoljeongdo_Regular";
 }
@@ -34,4 +62,40 @@
 .fontCookierun {
     font-family: "CookieRun-Regular";
     font-size: 1.1em;
+}
+
+.fontNexonRegular {
+    font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+.fontNexonBold {
+    font-family: 'NEXON Lv1 Gothic OTF Bold';
+}
+
+.msg {
+    text-align: center;
+}
+
+.msgMt2vh {
+    text-align: center;
+    margin-top: 2vh;
+}
+
+.msgMt3vh {
+    text-align: center;
+    margin-top: 3vh;
+}
+
+.msgMt5vh {
+    text-align: center;
+    margin-top: 5vh;
+}
+
+.msgMt8vh {
+    text-align: center;
+    margin-top: 8vh;
+}
+
+.font3em {
+    font-size: 3em;
 }

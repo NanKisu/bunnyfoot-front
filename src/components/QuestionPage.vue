@@ -1,22 +1,28 @@
 <template>
-  <div class="container fontCookierun">
-    <h4>{{ questionIndex + 1 }} / {{ questions.length }} </h4>
-    <span>{{ questions[questionIndex] }}</span>
+  <div class="container">
 
-    <div style="height: 50vh; text-align: center">
-      <img :src="getImgUrl()" style="max-height: 100%; max-width: 100%;"/>
+    <div class="topBbti fontNexonRegular">
+      <h4>{{ questionIndex + 1 }} / {{ questions.length }} </h4>
+      <span>{{ questions[questionIndex] }}</span>
     </div>
-    <img :src="blah" >
 
-    <div v-for="(item, index) in selections[questionIndex]" :key="index">
-      <v-btn depressed rounded x-large class="btnMain" @click="selectAnswer(index)">
-        {{item}}
-      </v-btn>
+    <div class="mainBbti">
+      <div style="height: 45vh; text-align: center">
+        <img :src="getImgUrl()" style="max-height: 100%; max-width: 100%;"/>
+      </div>
+      <!-- <img :src="blah" > -->
     </div>
-    <!-- <div v-for="answer in questions[questionIndex].answers" :key="answer.value">
-      <input type="radio" name="answer" :value="answer.value" v-model="questions[questionIndex].selectedAnswer" @change="answerChange"/>
-      {{answer.label}}
-    </div> -->
+
+    <div class="bottomBbti">
+      <div class="btnWrapper fontNexonBold">
+        <div v-for="(item, index) in selections[questionIndex]" :key="index">
+          <v-btn depressed rounded x-large color="#dff3e3" class="btnMain" @click="selectAnswer(index)">
+            {{item}}
+          </v-btn>
+        </div>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -49,30 +55,12 @@ export default {
         ['맞아요', '아니에요']
       ],
       selectedAnswer: [],
-      // questions: [
-      //   {
-      //     question: '내 토끼를 부르면 바로 돌아오거나 뛰어온다',
-      //     answers: [
-      //       {value: 1, label: 'Yes'},
-      //       {value: 2, label: 'No'}
-      //     ],
-      //     selectedAnswer: ''
-      //   },
-      // ],
       questionIndex: 0,
       img: null,
-      blah: null
+      // blah: null
     }
   },
   methods: {
-    // answerChange (event) {
-    //   event.target.checked = false
-    //   this.questionIndex++
-    //   if (this.questionIndex > this.questions.length) {
-    //     this.$router.push('/result')
-    //   }
-    // },
-
     selectAnswer (index) {
       this.selectedAnswer.push(index)
       this.questionIndex++
@@ -82,7 +70,6 @@ export default {
         this.img = localStorage.getItem('uploadImage')
         var file = this.dataURLtoFile(this.img,'image.png');
         
-        var object = {};
         let fd = new FormData()
         fd.append('image', file)
         fd.append('answers', this.selectedAnswer)
@@ -90,16 +77,12 @@ export default {
         axios.post('http://localhost:8080/server/bbti', fd)
         .then(resp => {
           console.log(resp)
-          // this.imagePath = resp.data.path
           // this.$router.push({ name: 'ResultPage', params: { resultId: 1 } })
         })
-
-        
       }
     },
 
     dataURLtoFile(dataurl, filename) {
- 
         var arr = dataurl.split(','),
             mime = arr[0].match(/:(.*?);/)[1],
             bstr = atob(arr[1]), 
