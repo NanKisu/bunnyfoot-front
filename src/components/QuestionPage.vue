@@ -77,8 +77,13 @@ export default {
         axios.post('http://13.209.196.50/server/bbti', fd)
         .then(resp => {
           console.log(resp)
-          // this.$router.push({ name: 'ResultPage', params: { resultId: 1 } })
+
+          // 이동 로직
         })
+
+        // 임시로 랜덤으로 결과 출력
+          var resultId = Math.floor(Math.random()*10) % 4 + 1
+          this.$router.push({ name: 'ResultPage', params: { resultId: resultId } })
       }
     },
 
