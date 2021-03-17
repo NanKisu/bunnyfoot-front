@@ -77,7 +77,10 @@ export default {
           var file = this.dataURLtoFile(this.img,'image.png');
           
           fd.append('image', file)
-        }
+          }
+          else {
+            fd.append('image', null)
+          }
 
         axios.post('http://13.209.196.50/server/bbti', fd)
         .then(resp => {

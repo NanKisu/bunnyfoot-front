@@ -80,6 +80,7 @@ export default {
       console.log("before: ")
       // reader.readasdataurl
       reader.onload = (e) => { 
+        localStorage.removeItem('uploadImage')
         localStorage.setItem('uploadImage', e.target.result)
         this.goQuestion()
       }
@@ -101,7 +102,6 @@ export default {
 
     // 질문 페이지로 이동
     goQuestion (e) {
-      localStorage.removeItem('uploadImage')
       this.$router.push('/question')
     }
   }
