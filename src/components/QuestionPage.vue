@@ -41,7 +41,8 @@ export default {
         '주변 사람들이 내 토끼에 대해 하는 말은?',
         '케이지 청소를 할 때 내 토끼의 반응은?',
         '화났을 때 내 토끼는?',
-        '내 토끼의 머리를 쓰다듬으면 고개를 바로 숙인다'
+        '내 토끼의 머리를 쓰다듬으면 고개를 바로 숙인다',
+        '내 토끼는 편식을 한다'
       ],
       selections: [
         ['맞아요', '아니에요'],
@@ -52,6 +53,7 @@ export default {
         ['개구쟁이네!', '시크하네!'],
         ['내 영역이야! 화를 낸다', '별로 상관 없어! 무반응'],
         ['폭풍 스텀핑!!', '스텀핑은 하지 않는다'],
+        ['맞아요', '아니에요'],
         ['맞아요', '아니에요']
       ],
       selectedAnswer: [],
@@ -64,26 +66,34 @@ export default {
     selectAnswer (index) {
       this.selectedAnswer.push(index)
       this.questionIndex++
-      if (this.questionIndex + 1 > this.questions.length) {
 
-        // 업로드 이미지 가져오기
-        this.img = localStorage.getItem('uploadImage')
-        var file = this.dataURLtoFile(this.img,'image.png');
-        
+      if (this.questionIndex + 1 > this.questions.length) {
         let fd = new FormData()
-        fd.append('image', file)
         fd.append('answers', this.selectedAnswer)
+
+          if(localStorage.getItem('uploadImage')) {
+          // 업로드 이미지 가져오기
+          this.img = localStorage.getItem('uploadImage')
+          var file = this.dataURLtoFile(this.img,'image.png');
+          
+          fd.append('image', file)
+        }
 
         axios.post('http://13.209.196.50/server/bbti', fd)
         .then(resp => {
           console.log(resp)
-
+          localStorage.removeItem('uploadImage')
           // 이동 로직
         })
-
-        // 임시로 랜덤으로 결과 출력
+        .catch(error => {
+          alert('오류가 발생했어요!')
+          
+          // 임시로 랜덤으로 결과 출력
           var resultId = Math.floor(Math.random()*10) % 4 + 1
           this.$router.push({ name: 'ResultPage', params: { resultId: resultId } })
+        })
+
+        
       }
     },
 

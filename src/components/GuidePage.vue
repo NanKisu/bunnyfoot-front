@@ -101,6 +101,7 @@ export default {
 
     // 질문 페이지로 이동
     goQuestion (e) {
+      localStorage.removeItem('uploadImage')
       this.$router.push('/question')
     }
   }
