@@ -1,6 +1,7 @@
 <template>
   <div class="container">
 
+    
     <div class="topBbti">
       <h1 class="fontKotraBold font2em msgMt3vh"><span id="bunny" v-html="resultTitle[resultId-1]"></span></h1>
     </div>
@@ -8,6 +9,7 @@
     <div class="mainBbti">
       <div style="height: 45vh; text-align: center">
         <img :src="getImgUrl()" style="max-height: 100%; max-width: 100%;"/>
+        <img :src="imgCaptured">
       </div>
 
       <v-alert
@@ -17,10 +19,11 @@
         v-html="resultText[resultId-1]"
       >
       </v-alert>
+    
 
       <div class="btnWrapper fontNexonBold btnFixed">
-        <v-btn>카카오톡 공유</v-btn>
-        <v-btn>이미지 다운로드</v-btn>
+        <v-btn id="btnKakao">카카오톡 공유</v-btn>
+        <v-btn @click="captureImage">이미지 다운로드</v-btn>
         <v-btn @click="redo">다시 해보기</v-btn>
       </div>
     </div>
@@ -34,6 +37,7 @@
 </template>
 
 <script>
+
 export default {
   name: 'ResultPage',
   data () {
@@ -45,7 +49,8 @@ export default {
         '일반적인 토끼의 규칙은<br>내 토끼에게 적용되지 않아요.<br>가끔 얘가 토끼인지 사람인지 모르겠어요.<br>그동안 먹여주고 입혀주고(?)<br>재워준 건 난데<br>집사고 뭐고 사람을 좋아하는 편이에요.<br>간식이라도 가지고 있으면 난리남!',
         '사람을 좋아하는 토끼!<br>집사 껌딱지!<br>애교가 많아서 하루하루<br>나를 행복하게 만들어줘요<br>집사에게 긍정적인 기운을<br>뿜뿜 뿜어준답니다!',
         '너무 순딩순딩한 인형 같은 토끼!<br>다른 토끼들은 허락하지 않는 곳까지<br>만질 수 있게 해줘요<br>'
-      ]
+      ],
+      imgCaptured: null
     }
   },
   methods: {
@@ -53,9 +58,28 @@ export default {
       return '/static/images/result_type_' + this.resultId + '.png'
     },
 
+    shareKakao() {
+      Kakao.Link.createDefaultButton({
+        container: "#btnKakao",
+        objectType: "feed",
+        content: {
+          title: "카카오톡 공유하기",
+          description: "버니풋 카톡공유 기능 개발중",
+          imageUrl: '#',
+          link: {
+            webUrl: "http://13.209.196.50/"
+          }
+        }
+      })
+    },
+
     redo () {
       this.$router.push('/guide')
     }
+  },
+
+  mounted() {
+    this.shareKakao()
   }
 }
 </script>
