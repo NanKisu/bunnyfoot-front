@@ -10,7 +10,7 @@ import ResultPage from '@/components/ResultPage'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
+  mode: 'hash',
   routes: [
     {
       path: '/',

@@ -82,19 +82,21 @@ export default {
             fd.append('image', null)
           }
 
-        axios.post('http://13.209.196.50/server/bbti', fd)
-        .then(resp => {
-          console.log(resp)
-          localStorage.removeItem('uploadImage')
-          // 이동 로직
-        })
-        .catch(error => {
-          alert('오류가 발생했어요!')
-          
-          // 임시로 랜덤으로 결과 출력
-          var resultId = Math.floor(Math.random()*10) % 4 + 1
-          this.$router.push({ name: 'ResultPage', params: { resultId: resultId } })
-        })
+          let url = location.protocol + '//' + location.host + '/server/bbti'
+
+          axios.post(url, fd)
+          .then(resp => {
+            console.log(resp)
+            localStorage.removeItem('uploadImage')
+            // 이동 로직
+          })
+          .catch(error => {
+            alert('오류가 발생했어요!')
+            
+            // 임시로 랜덤으로 결과 출력
+            var resultId = Math.floor(Math.random()*10) % 4 + 1
+            this.$router.push({ name: 'ResultPage', params: { resultId: resultId } })
+          })
 
         
       }
