@@ -87,13 +87,13 @@ export default {
           {
             title: '결과 보기',
             link: {
-              webUrl: location.href
+              webUrl: "https://naver.com"
             }
           },
           {
             title: '나도 해보기',
             link: {
-              webUrl: "https://bbti.site"
+              webUrl: "https://daum.net"
             }
           }
         ]
