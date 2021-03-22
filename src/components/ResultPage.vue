@@ -21,10 +21,16 @@
       </v-alert>
     
 
-      <div class="btnWrapper fontNexonBold btnFixed">
-        <v-btn id="btnKakao">카카오톡 공유</v-btn>
-        <v-btn @click="captureImage">이미지 다운로드</v-btn>
-        <v-btn @click="redo">다시 해보기</v-btn>
+      <div class="btnWrapper fontNexonBold btnFlex">
+        <button id="btnKakao">
+          <img class="btnImg" src="/static/icons/kakao-talk_black.png" />
+        </button>
+        <button @click="captureImage">
+          <img class="btnImg" src="/static/icons/download_black.png" />
+        </button>
+        <button @click="redo">
+          <img class="btnImg" src="/static/icons/redo_black.png" />
+        </button>
       </div>
     </div>
 
@@ -43,7 +49,7 @@ export default {
   data () {
     return {
       resultId: this.$route.params.resultId,
-      resultTitle: ['경계심 가득한 도도한', '누가 뭐래도 나는 <br>이구역 인싸!', '애교쟁이', '순딩이'],
+      resultTitle: ['경계심 가득한 도도한', '누가 뭐래도 나는<br>이구역 인싸!', '함께해서 행복한<br>애교쟁이', '순딩이 울애기'],
       resultText: [
         '야생성을 간직하고 있어요<br>예민한 곳을 만지는 건 허용하지 않아요<br>먹이사슬의 최하층에 있는 게 토끼니까<br>경계심 많고 겁 많은 건 이해돼요<br>가끔은 애교있는 다른 토끼들 이야기를<br>들으면 조금은 섭섭하긴 해요<br>하지만 여전히 예쁜 내 토끼에요',
         '일반적인 토끼의 규칙은<br>내 토끼에게 적용되지 않아요.<br>가끔 얘가 토끼인지 사람인지 모르겠어요.<br>그동안 먹여주고 입혀주고(?)<br>재워준 건 난데<br>집사고 뭐고 사람을 좋아하는 편이에요.<br>간식이라도 가지고 있으면 난리남!',
@@ -58,19 +64,44 @@ export default {
       return '/static/images/result_type_' + this.resultId + '.png'
     },
 
+    getImgWebUrl () {
+      return location.protocol + '//' + location.host + this.getImgUrl()
+    },
+
     shareKakao() {
+      console.log(this.getImgWebUrl())
+
       Kakao.Link.createDefaultButton({
         container: "#btnKakao",
         objectType: "feed",
         content: {
-          title: "카카오톡 공유하기",
-          description: "버니풋 카톡공유 기능 개발중",
-          imageUrl: '#',
+          title: "내 토끼는 무슨 유형?",
+          description: this.resultTitle[this.resultId-1].replace("<br>"," "),
+          imageUrl: this.getImgWebUrl(),
+          // imageUrl: 'https://cdn.gjdream.com/news/photo/old/news/contents/UPFILE/2019/20190707497381.jpg',
           link: {
-            webUrl: "http://13.209.196.50/"
+            webUrl: "https://bbti.site"
           }
-        }
+        },
+        buttons: [
+          {
+            title: '결과 보기',
+            link: {
+              webUrl: location.href
+            }
+          },
+          {
+            title: '나도 해보기',
+            link: {
+              webUrl: "https://bbti.site"
+            }
+          }
+        ]
       })
+    },
+
+    captureImage () {
+
     },
 
     redo () {
@@ -102,7 +133,5 @@ body {
   background-size: contain;
 }
 
-.msg1 {
-}
 
 </style>

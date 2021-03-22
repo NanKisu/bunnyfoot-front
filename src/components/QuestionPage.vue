@@ -87,7 +87,6 @@ export default {
 
           axios.post(url, fd)
           .then(resp => {
-            console.log(resp)
             localStorage.removeItem('uploadImage')
 
             let resultId = this.resultDict[resp.data.bbti]
