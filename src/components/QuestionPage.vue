@@ -59,6 +59,7 @@ export default {
       selectedAnswer: [],
       questionIndex: 0,
       img: null,
+      resultDict: {'DODO': 1, 'INSSA': 2, 'AGYO': 3, 'SUNDING': 4}
       // blah: null
     }
   },
@@ -88,16 +89,19 @@ export default {
           .then(resp => {
             console.log(resp)
             localStorage.removeItem('uploadImage')
-            // 이동 로직
+
+            let resultId = this.resultDict[resp.bbti]
+            this.$router.push({ name: 'ResultPage', params: { resultId: resultId } })
+            
           })
           .catch(error => {
-            alert('오류가 발생했어요!')
-            
+            // 우리가 알 수 있게 슬랙으로 오류 쏘기
+            alert('서버 통신 실패')
+
             // 임시로 랜덤으로 결과 출력
             var resultId = Math.floor(Math.random()*10) % 4 + 1
             this.$router.push({ name: 'ResultPage', params: { resultId: resultId } })
           })
-
         
       }
     },
