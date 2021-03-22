@@ -90,7 +90,7 @@ export default {
             console.log(resp)
             localStorage.removeItem('uploadImage')
 
-            let resultId = this.resultDict[resp.bbti]
+            let resultId = this.resultDict[resp.data.bbti]
             this.$router.push({ name: 'ResultPage', params: { resultId: resultId } })
             
           })
