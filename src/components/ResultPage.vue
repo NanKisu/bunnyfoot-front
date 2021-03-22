@@ -80,20 +80,20 @@ export default {
           imageUrl: this.getImgWebUrl(),
           // imageUrl: 'https://cdn.gjdream.com/news/photo/old/news/contents/UPFILE/2019/20190707497381.jpg',
           link: {
-            webUrl: "https://bbti.site"
+            mobileWebUrl: "https://bbti.site",
           }
         },
         buttons: [
           {
             title: '결과 보기',
             link: {
-              webUrl: "https://naver.com"
+              mobileWebUrl: "https://naver.com"
             }
           },
           {
             title: '나도 해보기',
             link: {
-              webUrl: "https://daum.net"
+              mobileWebUrl: "https://daum.net"
             }
           }
         ]
