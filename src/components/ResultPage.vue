@@ -65,7 +65,7 @@ export default {
     },
 
     getImgWebUrl () {
-      return location.protocol + '//' + location.host + this.getImgUrl()
+      return (location.protocol + '//' + location.host + this.getImgUrl()).replace(".png", "_kakao.png")
     },
 
     shareKakao() {
