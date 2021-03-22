@@ -87,13 +87,13 @@ export default {
           {
             title: '결과 보기',
             link: {
-              mobileWebUrl: "https://naver.com"
+              mobileWebUrl: location.href
             }
           },
           {
             title: '나도 해보기',
             link: {
-              mobileWebUrl: "https://daum.net"
+              mobileWebUrl: "https://bbti.site"
             }
           }
         ]
