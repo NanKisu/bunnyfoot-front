@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import send from '@/components/SlackBot.js'
+import {send} from '@/components/SlackBot.js'
 
 export default {
   name: 'WelComePage',
@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     clickMainStart () {
-      // send('새로운 유저가 테스트를 시작했어요!')
+      send('운영-유입','새로운 유저가 테스트를 시작했어요!')
       this.$router.push('/guide')
     }
   },

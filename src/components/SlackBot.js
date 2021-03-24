@@ -8,15 +8,15 @@ const slack = new Slack(apiToken)
 
 console.log(slack)
 
-const send = async(message) => {
+const send = async(channel, message) => {
 slack.api('chat.postMessage', {
     username: 'slack bot',
     text: message,
-    channel: '오류',
+    channel: channel,
     icon_emoji: 'slack'
 }, function(err, response){
     console.log(response)
 })
 }
 
-export default send
+export {send}

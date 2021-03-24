@@ -28,7 +28,7 @@
 
 <script>
 import axios from 'axios'
-import send from '@/components/SlackBot.js'
+import {send} from '@/components/SlackBot.js'
 
 export default {
   name: 'QuestionPage',
@@ -96,7 +96,7 @@ export default {
             
           })
           .catch(error => {
-            send('결과를 얻는 데 실패했어요! 오류메시지=> ' + error)
+            send('운영-오류', '결과를 얻는 데 실패했어요! 오류메시지=> ' + error)
 
             // 임시로 랜덤으로 결과 출력
             var resultId = Math.floor(Math.random()*10) % 4 + 1
