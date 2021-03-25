@@ -5,7 +5,6 @@ import App from './App'
 import router from './router'
 import vuetify from '@/plugins/vuetify'
 import {KAKAO_APP_KEY} from './password'
-import {send} from '@/components/SlackBot.js'
 
 Vue.config.productionTip = false
 

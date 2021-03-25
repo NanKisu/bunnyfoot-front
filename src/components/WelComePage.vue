@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     clickMainStart () {
-      send('운영-유입','새로운 유저가 테스트를 시작했어요!')
+      send('welcome','새로운 유저가 테스트를 시작했어요!')
       this.$router.push('/guide')
     }
   },

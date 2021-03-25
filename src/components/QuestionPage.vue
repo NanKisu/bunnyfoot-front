@@ -96,7 +96,7 @@ export default {
             
           })
           .catch(error => {
-            send('운영-오류', '결과를 얻는 데 실패했어요! 오류메시지=> ' + error)
+            send('error', '결과를 얻는 데 실패했어요! 오류메시지=> ' + error)
 
             // 임시로 랜덤으로 결과 출력
             var resultId = Math.floor(Math.random()*10) % 4 + 1
