@@ -35,8 +35,7 @@
     </div>
 
     <div class="bottomBbti" style="height: 10vh;">
-      <div id="canvas"></div>
-      <!-- d -->
+      <img :src="blah" >
     </div>
 
     
@@ -58,7 +57,8 @@ export default {
         '사람을 좋아하는 토끼!<br>집사 껌딱지!<br>애교가 많아서 하루하루<br>나를 행복하게 만들어줘요<br>집사에게 긍정적인 기운을<br>뿜뿜 뿜어준답니다!',
         '너무 순딩순딩한 인형 같은 토끼!<br>다른 토끼들은 허락하지 않는 곳까지<br>만질 수 있게 해줘요<br>'
       ],
-      imgCaptured: null
+      imgCaptured: null,
+      blah: null
     }
   },
   methods: {
@@ -110,15 +110,7 @@ export default {
         function (canvas) {
           console.log(canvas.toDataURL('image/png'))
           // drawImg(canvas.toDataURL('image/png'))
-          var canvas = document.getElementById('canvas')
-          var ctx = canvas.getContext('2d')
-          ctx.clearRect(0, 0, canvas.width, canvas.height)
-
-          var imageObj = new Image()
-          imageObj.onload = function () {
-            ctx.drawImage(imageObj, 10, 10)
-          }
-          imageObj.src = imgData
+          
 
           // saveAs(canvas.toDataURL(), 'file-name.png')
         }
