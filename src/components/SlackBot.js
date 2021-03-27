@@ -2,11 +2,11 @@
 import axios from 'axios'
 
 const send = async(msgType, message) => {
-    let url = location.protocol + '//' + location.host + '/server/slack'
+    let url = location.protocol + '//' + location.host + '/server/sendSlackMsg'    
 
     let fd = new FormData()
-    fd.append('type', msgType)
-    fd.append('message', message)
+    fd.append('channel', msgType)
+    fd.append('msg', message)
 
     axios.post(url, fd)
     .then(resp => {

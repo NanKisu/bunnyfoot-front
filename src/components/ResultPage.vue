@@ -21,7 +21,7 @@
       </v-alert>
     
 
-      <div class="btnWrapper fontNexonBold btnFlex">
+      <div class="btnWrapper fontNexonBold btnFlex" data-html2canvas-ignore="true">
         <button id="btnKakao">
           <img class="btnImg" src="/static/icons/kakao-talk_black.png" />
         </button>
@@ -35,6 +35,7 @@
     </div>
 
     <div class="bottomBbti" style="height: 10vh;">
+      <div id="canvas"></div>
       <!-- d -->
     </div>
 
@@ -43,6 +44,7 @@
 </template>
 
 <script>
+import html2canvas from 'html2canvas'
 
 export default {
   name: 'ResultPage',
@@ -100,8 +102,39 @@ export default {
       })
     },
 
-    captureImage () {
+    captureImage (selector = 'body') {
+      window.html2canvas = html2canvas
 
+      html2canvas(document.body)
+      .then(
+        function (canvas) {
+          console.log(canvas.toDataURL('image/png'))
+          // drawImg(canvas.toDataURL('image/png'))
+          var canvas = document.getElementById('canvas')
+          var ctx = canvas.getContext('2d')
+          ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+          var imageObj = new Image()
+          imageObj.onload = function () {
+            ctx.drawImage(imageObj, 10, 10)
+          }
+          imageObj.src = imgData
+
+          // saveAs(canvas.toDataURL(), 'file-name.png')
+        }
+      )
+      .catch(function (err) {
+        console.log(err)
+      })
+
+      // html2canvas(ele, {
+        // onrendered: function(canvas) {
+        //   let position = 0
+        //   const imgData = canvas.toDataURL('image/png')
+
+        //   console.log(imgData)
+        // }
+      // })
     },
 
     redo () {
