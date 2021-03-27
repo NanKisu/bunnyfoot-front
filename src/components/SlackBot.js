@@ -1,43 +1,62 @@
 
-import Slack from 'slack-node'
-import {SLACK_ERROR_WEBHOOK, SLACK_WELCOME_WEBHOOK} from '../password'
+import axios from 'axios'
+
+const send = async(msgType, message) => {
+    let url = location.protocol + '//' + location.host + '/server/slack'
+
+    let fd = new FormData()
+    fd.append('type', msgType)
+    fd.append('message', message)
+
+    axios.post(url, fd)
+    .then(resp => {
+    })
+    .catch(error => {
+        console.log("슬랙 메시지 전송 실패")
+    })
+}
+
+export {send}
+
+// import Slack from 'slack-node'
+// import {SLACK_ERROR_WEBHOOK, SLACK_WELCOME_WEBHOOK} from '../password'
 
 // const apiToken = process.env.SLACK_TOKEN||SLACK_TOKEN
 
 // const slack = new Slack(apiToken)
-const slackError = new Slack
-slackError.setWebhook(SLACK_ERROR_WEBHOOK)
+// const slackError = new Slack
+// slackError.setWebhook(SLACK_ERROR_WEBHOOK)
 
-const slackWelcome = new Slack
-slackWelcome.setWebhook(SLACK_WELCOME_WEBHOOK)
+// const slackWelcome = new Slack
+// slackWelcome.setWebhook(SLACK_WELCOME_WEBHOOK)
 
-const send = async(msgtype, message) => {
-    if(location.host.includes('localhost')) {
-        message = '(로컬서버)' + message
-    }
+// const send = async(msgtype, message) => {
+//     if(location.host.includes('localhost')) {
+//         message = '(로컬서버)' + message
+//     }
 
-    if(msgtype == 'error') {
-        slackError.webhook({
-            // channel: channel,
-            // username: "slack bot",
-            text: message
-        }, function (err, response) {
-            console.log(response)
-        })
-    }
-    else if(msgtype == 'welcome') {
-        slackWelcome.webhook({
-            // channel: channel,
-            // username: "slack bot",
-            text: message
-        }, function (err, response) {
-            console.log(response)
-        })
-    }
+//     if(msgtype == 'error') {
+//         slackError.webhook({
+//             // channel: channel,
+//             // username: "slack bot",
+//             text: message
+//         }, function (err, response) {
+//             console.log(response)
+//         })
+//     }
+//     else if(msgtype == 'welcome') {
+//         slackWelcome.webhook({
+//             // channel: channel,
+//             // username: "slack bot",
+//             text: message
+//         }, function (err, response) {
+//             console.log(response)
+//         })
+//     }
     
-}
+// }
 
-export {send}
+// export {send}
 
 
 
