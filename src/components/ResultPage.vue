@@ -21,21 +21,20 @@
       </v-alert>
     
 
-      <div class="btnWrapper fontNexonBold btnFlex" data-html2canvas-ignore="true">
-        <button id="btnKakao">
+      <div class="btnWrapper fontNexonBold btnFlex">
+        <button id="btnKakao" data-html2canvas-ignore="true">
           <img class="btnImg" src="/static/icons/kakao-talk_black.png" />
         </button>
-        <button @click="captureImage">
+        <button @click="captureImage" data-html2canvas-ignore="true">
           <img class="btnImg" src="/static/icons/download_black.png" />
         </button>
-        <button @click="redo">
+        <button @click="redo" data-html2canvas-ignore="true">
           <img class="btnImg" src="/static/icons/redo_black.png" />
         </button>
       </div>
     </div>
 
     <div class="bottomBbti" style="height: 10vh;">
-      <img :src="blah" >
     </div>
 
     
@@ -58,7 +57,6 @@ export default {
         '너무 순딩순딩한 인형 같은 토끼!<br>다른 토끼들은 허락하지 않는 곳까지<br>만질 수 있게 해줘요<br>'
       ],
       imgCaptured: null,
-      blah: null
     }
   },
   methods: {
@@ -108,11 +106,24 @@ export default {
       html2canvas(document.body)
       .then(
         function (canvas) {
-          console.log(canvas.toDataURL('image/png'))
-          // drawImg(canvas.toDataURL('image/png'))
-          
+          // console.log(canvas.toDataURL('image/png'))
 
-          // saveAs(canvas.toDataURL(), 'file-name.png')
+          // 캡쳐한 이미지 png로 다운로드
+          var link = document.createElement('a')
+          if (typeof link.download === 'string') {
+            link.href = canvas.toDataURL('image/png')
+
+            let today = new Date()
+            link.download = 'bbti-' + today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate() + '.png'
+
+            document.body.appendChild(link)
+            link.click()
+            document.body.removeChild(link)
+          }
+          else {
+            window.open(canvas.toDataURL('image/png'))
+          }
+          
         }
       )
       .catch(function (err) {
