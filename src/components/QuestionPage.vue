@@ -85,7 +85,7 @@ export default {
             fd.append('image', null)
           }
 
-          let url = location.protocol + '//' + location.host + '/server/bbti'
+          let url = this.$store.state.apiUrl + 'bbti' 
 
           axios.post(url, fd)
           .then(resp => {
