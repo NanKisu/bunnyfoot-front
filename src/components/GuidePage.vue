@@ -5,7 +5,7 @@
       <div class="msg">
         <span class="fontNexonRegular">
           내 토끼의 발바닥 사진을 올려주시면<br>결과에 반영할게요!<br><br>
-          아래 초록색 상자처럼<br><b>발바닥만</b> 잘라서 보내주세요!
+          아래 분홍색 상자처럼<br><b>발바닥만</b> 잘라서 보내주세요!
         </span>
       </div>
     </div>
