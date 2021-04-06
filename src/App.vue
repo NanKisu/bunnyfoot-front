@@ -17,6 +17,10 @@ body {
 }
 
 @media screen and (min-width: 600px) {
+  body {
+    background-color: #ccc !important;
+  }
+
   #app {
     position: relative;
     top: 50vh;
@@ -26,12 +30,15 @@ body {
     margin: 0 auto;
   }
 }
-#app {
-  max-width: 600px;
-  background-image: url("/static/images/pattern/leaves.png");
-  /* height: 100%; */
-  background-position: center;
-  background-repeat: repeat;
-  /* background-size: cover; */
+
+@media screen and (max-width: 601px) {
+  body {
+    background-image: url("/static/images/pattern/leaves.png");
+    /* height: 100%; */
+    background-position: center;
+    background-repeat: repeat;
+    /* background-size: cover; */
+  }
 }
+
 </style>
