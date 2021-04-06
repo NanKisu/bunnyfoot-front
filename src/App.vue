@@ -24,10 +24,15 @@ body {
   #app {
     position: relative;
     top: 50vh;
-    margin-top: -450px;
+    margin-top: -450px !important;
     min-height: 900px !important;
     max-width: 600px !important;
     margin: 0 auto;
+
+    background-image: url("/static/images/pattern/leaves.png");
+    /* height: 100%; */
+    background-position: center;
+    background-repeat: repeat;
   }
 }
 
