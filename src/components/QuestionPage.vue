@@ -2,8 +2,10 @@
   <div class="container">
 
     <div class="topBbti fontNexonRegular">
-      <h4>{{ questionIndex + 1 }} / {{ questions.length }} </h4>
-      <span>{{ questions[questionIndex] }}</span>
+      <div style="line-height: 5vh;">
+        <h4>{{ questionIndex + 1 }} / {{ questions.length }} </h4>
+        <span>{{ questions[questionIndex] }}</span>
+      </div>
     </div>
 
     <div class="mainBbti">

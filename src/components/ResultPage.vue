@@ -3,7 +3,7 @@
 
     
     <div class="topBbti">
-      <h1 class="fontKotraBold font2em msgMt3vh"><span id="bunny" v-html="resultTitle[resultId-1]"></span></h1>
+      <h1 style="line-height: 15vh;" class="fontKotraBold font2em msgMt3vh"><span id="bunny" v-html="resultTitle[resultId-1]"></span></h1>
     </div>
 
     <div class="mainBbti">
@@ -34,8 +34,8 @@
       </div>
     </div>
 
-    <div class="bottomBbti" style="height: 10vh;">
-    </div>
+    <!-- <div class="bottomBbti" style="height: 10vh;">
+    </div> -->
 
     
   </div>
