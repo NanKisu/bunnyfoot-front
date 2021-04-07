@@ -7,7 +7,7 @@
     </div>
 
     <div class="mainBbti">
-      <div style="height: 45vh; text-align: center">
+      <div id="imgWrapper">
         <img :src="getImgUrl()" style="max-height: 100%; max-width: 100%;"/>
         <img :src="imgCaptured">
       </div>

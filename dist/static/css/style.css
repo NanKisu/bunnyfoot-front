@@ -1,3 +1,13 @@
+/* 이미지 수직 가운데 정렬 */
+img {
+    vertical-align: middle;
+}
+#imgWrapper {
+    line-height: 45vh;
+    height: 45vh;
+    text-align: center
+}
+
 .topBbti {
     height: 15vh;
 }
