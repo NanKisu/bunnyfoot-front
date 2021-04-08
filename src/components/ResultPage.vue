@@ -3,7 +3,7 @@
 
     
     <div class="topBbti">
-      <h1 style="line-height: 15vh;" class="fontKotraBold font2em msgMt3vh"><span id="bunny" v-html="resultTitle[resultId-1]"></span></h1>
+      <h1 style="line-height: 7vh;" class="fontKotraBold font2em msgMt3vh"><span id="bunny" v-html="resultTitle[resultId-1]"></span></h1>
     </div>
 
     <div class="mainBbti">
@@ -14,28 +14,28 @@
 
       <v-alert
         border="top"
-        style="background-color: rgb(225 225 225 / 45%)"
+        style="background-color: rgb(255 255 255 / 70%)"
         class="fontNexonRegular lhWide"
         v-html="resultText[resultId-1]"
       >
       </v-alert>
     
 
-      <div class="btnWrapper fontNexonBold btnFlex">
+      <div class="btnWrapper fontNexonBold" style="margin-bottom: 5vh;">
         <button id="btnKakao" data-html2canvas-ignore="true">
-          <img class="btnImg" src="/static/icons/kakao-talk_black.png" />
+          <img class="btnImg" src="/static/icons/kakao-talk-basic.png" />
         </button>
         <button @click="captureImage" data-html2canvas-ignore="true">
-          <img class="btnImg" src="/static/icons/download_black.png" />
+          <img class="btnImg" src="/static/icons/Download-green.png" />
         </button>
         <button @click="redo" data-html2canvas-ignore="true">
-          <img class="btnImg" src="/static/icons/redo_black.png" />
+          <img class="btnImg" src="/static/icons/redo-yellow.png" />
         </button>
       </div>
     </div>
 
-    <!-- <div class="bottomBbti" style="height: 10vh;">
-    </div> -->
+    <div class="bottomBbti" style="height: 10vh;">
+    </div>
 
     
   </div>
@@ -57,6 +57,7 @@ export default {
         '너무 순딩순딩한 인형 같은 토끼!<br>다른 토끼들은 허락하지 않는 곳까지<br>만질 수 있게 해줘요<br>'
       ],
       imgCaptured: null,
+      envHost: ''
     }
   },
   methods: {
@@ -65,7 +66,8 @@ export default {
     },
 
     getImgWebUrl () {
-      return (location.protocol + '//' + location.host + this.getImgUrl()).replace(".png", "_kakao.png")
+      // return (location.protocol + '//' + location.host + this.getImgUrl()).replace(".png", "_kakao.png")
+      return (this.envHost + this.getImgUrl()).replace(".png", "_kakao.png")
     },
 
     shareKakao() {
@@ -78,22 +80,24 @@ export default {
           title: "내 토끼는 무슨 유형?",
           description: this.resultTitle[this.resultId-1].replace("<br>"," "),
           imageUrl: this.getImgWebUrl(),
-          // imageUrl: 'https://cdn.gjdream.com/news/photo/old/news/contents/UPFILE/2019/20190707497381.jpg',
           link: {
-            mobileWebUrl: "https://bbti.site",
+            webUrl: this.envHost,
+            mobileWebUrl: this.envHost
           }
         },
         buttons: [
           {
             title: '결과 보기',
             link: {
-              mobileWebUrl: location.href
+              webUrl: this.envHost + "/#/result/" + this.resultId,
+              mobileWebUrl: this.envHost + "/#/result/" + this.resultId
             }
           },
           {
             title: '나도 해보기',
             link: {
-              mobileWebUrl: "https://bbti.site"
+              webUrl: this.envHost,
+              mobileWebUrl: this.envHost
             }
           }
         ]
@@ -146,7 +150,9 @@ export default {
   },
 
   mounted() {
+    this.envHost = this.$store.state.envHost
     this.shareKakao()
+    // console.log(this.envHost)
   }
 }
 </script>

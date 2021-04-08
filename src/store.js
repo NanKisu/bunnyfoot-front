@@ -5,6 +5,7 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
     state: {
-        apiUrl:  location.protocol + '//' + location.host + '/server/'   
+        apiUrl:  location.protocol + '//' + location.host + '/server/',
+        envHost: "https://bbti.site"
     }
 })
