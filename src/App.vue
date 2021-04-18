@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view/>
+    <div id="app2">
+      <router-view/>
+    </div>
   </div>
 </template>
 
@@ -11,39 +13,48 @@ export default {
 </script>
 
 <style>
-@import '../static/css/style.css';
-body {
-  background-color: #ccc;
-}
-
-@media screen and (min-width: 600px) {
-  body {
-    background-color: #ccc !important;
-  }
+  @import '../static/css/style.css';
 
   #app {
     position: relative;
-    top: 50vh;
-    margin-top: -450px !important;
-    min-height: 900px !important;
-    max-width: 600px !important;
-    margin: 0 auto;
-
-    background-image: url("/static/images/pattern/leaves.png");
-    /* height: 100%; */
-    background-position: center;
-    background-repeat: repeat;
+    height: 100vh;
+    overflow: auto;
   }
-}
 
-@media screen and (max-width: 601px) {
-  body {
-    background-image: url("/static/images/pattern/leaves.png");
-    /* height: 100%; */
-    background-position: center;
-    background-repeat: repeat;
-    /* background-size: cover; */
+  @media screen and (max-width: 550px) {
+    body {
+      background-image: url("/static/images/pattern/leaves.png");
+      background-position: center;
+      background-repeat: repeat;
+    }
   }
-}
 
+  @media screen and (min-width: 551px) {
+    body {
+      background-color: #ccc;
+    }
+    #app {
+      max-width: 550px !important;
+      margin: 0 auto !important;
+      background-image: url("/static/images/pattern/leaves.png");
+      background-position: center;
+      background-repeat: repeat;
+    }
+  }
+
+  @media screen and (max-height: 700px) {
+    #app2 {
+      height: 100vh !important;
+      min-height: 700px !important;
+    }
+  }
+
+  @media screen and (min-height: 701px) {
+    #app2 {
+      position: relative;
+      top: 50% !important;
+      margin-top: -350px !important;
+      height: 700px !important;
+    }
+  }
 </style>

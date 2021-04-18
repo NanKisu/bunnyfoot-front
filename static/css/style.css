@@ -2,18 +2,22 @@
 img {
     vertical-align: middle;
 }
+.container{
+    height: 100% !important;
+    padding: 0 12px !important;
+}
 #imgWrapper {
-    line-height: 45vh;
-    height: 45vh;
+    line-height: 300px;
+    height: 300px;
     text-align: center
 }
 
 .topBbti {
-    height: 15vh;
+    height: 105px;
 }
 
 .mainBbti {
-    height: 45vh;
+    height: 385px;
 }
 
 .imgSection {
@@ -27,11 +31,15 @@ img {
     text-align: center;
 }
 
+.btnMain:first-child {
+    margin-top: 60px !important;
+}
+
 .btnMain {
-    margin-top: 5vh;
+    margin-top: 20px;
     width: 100%;
     max-width: 500px;
-    height: 30vh;
+    height: 30%;
 
     color: white;
     /* font-size: 3em; */
@@ -40,6 +48,10 @@ img {
 .btnFixed {
     position: fixed;
     bottom: 0;
+}
+
+.bottomBbti{
+    height: 210px;
 }
 
 @font-face {
@@ -104,22 +116,22 @@ img {
 
 .msgMt2vh {
     text-align: center;
-    margin-top: 2vh;
+    margin-top: 2%;
 }
 
 .msgMt3vh {
     text-align: center;
-    margin-top: 3vh;
+    margin-top: 3%;
 }
 
 .msgMt5vh {
     text-align: center;
-    margin-top: 5vh;
+    margin-top: 5%;
 }
 
 .msgMt8vh {
     text-align: center;
-    margin-top: 8vh;
+    margin-top: 8%;
 }
 
 .font2em {

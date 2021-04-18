@@ -2,13 +2,13 @@
   <div class="container">
 
     <div class="topBbti fontNexonRegular">
-      <div style="line-height: 5vh;">
-        <h4>{{ questionIndex + 1 }} / {{ questions.length }} </h4>
-        <span>{{ questions[questionIndex] }}</span>
+      <div style="line-height: 5vh; text-align: center">
+        <span>Question <b>{{ questionIndex + 1 }} / {{ questions.length }}</b> </span><br/>
       </div>
     </div>
 
-    <div class="mainBbti">
+    <div class="mainBbti" style="text-align: center">
+      <h2 style="padding: 0px 50px; word-break: keep-all;">{{ questions[questionIndex] }}</h2>
       <div id="imgWrapper">
         <img :src="getImgUrl()" style="max-height: 100%; max-width: 100%;"/>
       </div>
@@ -17,8 +17,8 @@
 
     <div class="bottomBbti">
       <div class="btnWrapper fontNexonBold">
-        <div v-for="(item, index) in selections[questionIndex]" :key="index">
-          <v-btn depressed rounded x-large color="#dff3e3" class="btnMain" @click="selectAnswer(index)">
+        <div>
+          <v-btn v-for="(item, index) in selections[questionIndex]" :key="index" depressed rounded x-large color="#dff3e3" class="btnMain" @click="selectAnswer(index)">
             {{item}}
           </v-btn>
         </div>
@@ -30,7 +30,6 @@
 
 <script>
 import axios from 'axios'
-import {send} from '@/components/SlackBot.js'
 
 export default {
   name: 'QuestionPage',
@@ -76,50 +75,47 @@ export default {
         let fd = new FormData()
         fd.append('answers', this.selectedAnswer)
 
-          if(localStorage.getItem('uploadImage')) {
+        if (localStorage.getItem('uploadImage')) {
           // 업로드 이미지 가져오기
           this.img = localStorage.getItem('uploadImage')
-          var file = this.dataURLtoFile(this.img,'image.png');
-          
+          var file = this.dataURLtoFile(this.img, 'image.png')
+
           fd.append('image', file)
-          }
-          else {
-            fd.append('image', null)
-          }
+        } else {
+          fd.append('image', null)
+        }
 
-          let url = this.$store.state.apiUrl + 'bbti' 
+        let url = this.$store.state.apiUrl + 'bbti'
 
-          axios.post(url, fd)
+        axios.post(url, fd)
           .then(resp => {
             localStorage.removeItem('uploadImage')
 
             let resultId = this.resultDict[resp.data.bbti]
             this.$router.push({ name: 'ResultPage', params: { resultId: resultId } })
-            
           })
-          .catch(error => {
+          .catch(() => {
             // send('error', '결과를 얻는 데 실패했어요! 오류메시지=> ' + error)
 
             // 임시로 랜덤으로 결과 출력
-            var resultId = Math.floor(Math.random()*10) % 4 + 1
+            var resultId = Math.floor(Math.random() * 10) % 4 + 1
             this.$router.push({ name: 'ResultPage', params: { resultId: resultId } })
           })
-        
       }
     },
 
-    dataURLtoFile(dataurl, filename) {
-        var arr = dataurl.split(','),
-            mime = arr[0].match(/:(.*?);/)[1],
-            bstr = atob(arr[1]), 
-            n = bstr.length, 
-            u8arr = new Uint8Array(n);
-            
-        while(n--){
-            u8arr[n] = bstr.charCodeAt(n);
-        }
-        
-        return new File([u8arr], filename, {type:mime});
+    dataURLtoFile (dataurl, filename) {
+      let arr = dataurl.split(',')
+      let mime = arr[0].match(/:(.*?);/)[1]
+      let bstr = atob(arr[1])
+      let n = bstr.length
+      let u8arr = new Uint8Array(n)
+
+      while (n--) {
+        u8arr[n] = bstr.charCodeAt(n)
+      }
+
+      return new File([u8arr], filename, {type: mime})
     },
 
     getImgUrl () {

@@ -10,14 +10,12 @@
     </div>
 
     <div class="bottomBbti">
-      <div v-if="pageViewVisible" class="fontCookierun msgMt8vh">
-          지금까지 {{ participant }} 마리가 참여해토
-      </div>
-
       <div class="btnWrapper fontNexonBold" @click="clickMainStart()">
         <v-btn depressed rounded x-large color="#FEDEDF" class="btnMain">시작</v-btn>
       </div>
-      
+      <div v-if="pageViewVisible" class="fontCookierun msgMt8vh">
+          지금까지 {{ participant }} 마리가 참여해토
+      </div>
     </div>
 
   </div>
@@ -37,20 +35,20 @@ export default {
   },
   methods: {
     getPageView () {
-      let url = this.$store.state.apiUrl + 'pageView' 
+      let url = this.$store.state.apiUrl + 'pageView'
       // console.log(url)
-      
+
       axios.get(url)
-      .then(rest => {
-        this.participant = rest.data
-        this.pageViewVisible = true
-      })
-      .catch(error => {
-      })
+        .then(rest => {
+          this.participant = rest.data
+          this.pageViewVisible = true
+        })
+        .catch(() => {
+        })
     },
 
     clickMainStart () {
-      send('welcome','새로운 유저가 테스트를 시작했어요!')
+      send('welcome', '새로운 유저가 테스트를 시작했어요!')
       this.$router.push('/guide')
     }
   },

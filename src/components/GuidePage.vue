@@ -40,7 +40,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import CheckUploadPage from '@/components/CheckUploadPage.vue'
 
 export default {
@@ -74,12 +73,12 @@ export default {
     // 사진 데이터 확인 후 전송
     sendUploadImage () {
       // this.showCheck = false
-      
-      const reader = new FileReader();
+
+      const reader = new FileReader()
       reader.readAsDataURL(this.img)
-      console.log("before: ")
+      console.log('before: ')
       // reader.readasdataurl
-      reader.onload = (e) => { 
+      reader.onload = (e) => {
         localStorage.removeItem('uploadImage')
         localStorage.setItem('uploadImage', e.target.result)
         this.goQuestion()
@@ -92,8 +91,6 @@ export default {
       //   .then(resp => {
       //     // this.imagePath = resp.data.path
       //   })
-
-      
     },
 
     hideModal () {
@@ -117,7 +114,6 @@ h4 {
   margin-top: 5vh;
   text-align: center;
 }
-
 
 input[type="file"] {
   display: none;

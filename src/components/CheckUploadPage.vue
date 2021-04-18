@@ -16,18 +16,17 @@
 
 </style>
 
- 
 <script>
 export default {
-    data () {
-        return {
-            open: false
-        }
-    },
-    methods: {
-        hideModal() {
-            this.open = false
-        }
+  data () {
+    return {
+      open: false
     }
+  },
+  methods: {
+    hideModal () {
+      this.open = false
+    }
+  }
 }
 </script>
