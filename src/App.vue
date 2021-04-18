@@ -18,7 +18,7 @@ export default {
   #app {
     position: relative;
     height: 100vh;
-    overflow: auto;
+    overflow: hidden;
   }
 
   @media screen and (max-width: 550px) {
