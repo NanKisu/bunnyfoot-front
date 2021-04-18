@@ -6,7 +6,7 @@
     </div>
 
     <div class="mainBbti">
-      <img :src="getImgUrl()" style="max-height: 100%; max-width: 100%; vertical-align: top !important"/>
+      <img :src="getImgUrl()" style="display: block; margin: auto; height: 200px; vertical-align: top !important"/>
       <img :src="imgCaptured">
 
       <v-alert
@@ -20,7 +20,7 @@
     </div>
 
     <div class="bottomBbti" style="height: 10vh;">
-      <div class="btnWrapper fontNexonBold" style="margin-top: 100vh;">
+      <div class="btnWrapper fontNexonBold" style="margin-top: 100px;">
         <button id="btnKakao" data-html2canvas-ignore="true">
           <img class="btnImg" src="/static/icons/kakao-talk-basic.png" />
         </button>
