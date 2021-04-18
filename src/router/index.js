@@ -6,6 +6,7 @@ import CheckUploadPage from '@/components/CheckUploadPage'
 // import ImageSelectPage from '@/components/ImageSelectPage'
 import QuestionPage from '@/components/QuestionPage'
 import ResultPage from '@/components/ResultPage'
+import TestPage from '@/components/TestPage'
 
 Vue.use(Router)
 
@@ -41,6 +42,11 @@ export default new Router({
       path: '/result/:resultId',
       name: 'ResultPage',
       component: ResultPage
+    },
+    {
+      path: '/test',
+      name: 'TestPage',
+      component: TestPage
     }
   ]
 })
