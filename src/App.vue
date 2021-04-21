@@ -50,19 +50,19 @@ export default {
     }
   }
 
-  @media screen and (max-height: 700px) {
+  @media screen and (max-height: 600px) {
     #app2 {
       height: 100% !important;
-      min-height: 700px !important;
+      min-height: 600px !important;
     }
   }
 
-  @media screen and (min-height: 701px) {
+  @media screen and (min-height: 601px) {
     #app2 {
       position: relative;
       top: 50% !important;
-      margin-top: -350px !important;
-      height: 700px !important;
+      margin-top: -300px !important;
+      height: 600px !important;
     }
   }
 </style>

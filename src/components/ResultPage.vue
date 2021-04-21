@@ -2,16 +2,16 @@
   <div class="container">
 
     <div class="topBbti">
-      <h1 style="line-height: 7vh;" class="fontKotraBold font2em msgMt3vh"><span id="bunny" v-html="resultTitle[resultId-1]"></span></h1>
+      <h1 style="line-height: 5vh;" class="fontKotraBold font2em msgMt3vh"><span id="bunny" v-html="resultTitle[resultId-1]"></span></h1>
     </div>
 
     <div class="mainBbti">
-      <img :src="getImgUrl()" style="display: block; margin: auto; height: 200px; vertical-align: top !important"/>
+      <img :src="getImgUrl()" style="display: block; margin: auto; height: 160px; vertical-align: top !important"/>
       <img :src="imgCaptured">
 
       <v-alert
         border="top"
-        style="background-color: rgb(240 240 240 / 100%)"
+        style="background-color: rgb(240 240 240 / 100%); font-site: 14px;"
         class="fontNexonRegular lhWide"
         v-html="resultText[resultId-1]"
       >
