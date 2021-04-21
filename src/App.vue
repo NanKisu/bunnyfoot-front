@@ -15,6 +15,14 @@ export default {
 <style>
   @import '../static/css/style.css';
 
+  html {
+    height: 100%;
+  }
+
+  body{
+    height: 100%;
+  }
+
   #app {
     position: relative;
     height: 100vh;
@@ -44,7 +52,7 @@ export default {
 
   @media screen and (max-height: 700px) {
     #app2 {
-      height: 100vh !important;
+      height: 100% !important;
       min-height: 700px !important;
     }
   }
