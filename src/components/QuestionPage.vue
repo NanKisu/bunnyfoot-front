@@ -3,7 +3,7 @@
 
     <div class="topBbti fontNexonRegular">
       <div style="line-height: 5vh; text-align: center">
-        <span>Question <b>{{ questionIndex + 1 }} / {{ questions.length }}</b> </span><br/>
+        <span><b>{{ questionIndex + 1 }} / {{ questions.length }}</b> </span><br/>
       </div>
     </div>
 
