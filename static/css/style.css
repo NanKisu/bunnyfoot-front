@@ -2,6 +2,20 @@
 img {
     vertical-align: middle;
 }
+
+h1 {
+    font-family: 'NEXON Lv1 Gothic OTF';
+}
+h2 {
+    font-family: 'NEXON Lv1 Gothic OTF';
+}
+h3 {
+    font-family: 'NEXON Lv1 Gothic OTF';
+}
+h4 {
+    font-family: 'NEXON Lv1 Gothic OTF';
+}
+
 .container{
     height: 100% !important;
     padding: 0 12px !important;
