@@ -1,7 +1,7 @@
 <template>
   <div class="container">
 
-    <div class="topBbti">
+    <!-- <div class="topBbti">
       <h1 style="line-height: 5vh;" class="fontKotraBold font2em msgMt3vh"><span id="bunny" v-html="resultTitle[resultId-1]"></span></h1>
     </div>
 
@@ -17,7 +17,13 @@
       >
       </v-alert>
 
+    </div> -->
+    
+
+    <div class="mainBbti">
+      <img :src="getImgUrl()" style="width: 85vw"/>
     </div>
+
 
     <div class="bottomBbti" style="height: 10vh;">
       <div class="btnWrapper fontNexonBold" style="margin-top: 100px;">
