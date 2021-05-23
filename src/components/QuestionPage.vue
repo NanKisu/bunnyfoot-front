@@ -1,30 +1,34 @@
 <template>
-  <div class="container">
+  <div id="app">
+    <div id="app2">
+      <div class="container">
 
-    <div class="topBbti fontNexonRegular">
-      <div style="line-height: 5vh; text-align: center">
-        <span><b>{{ questionIndex + 1 }} / {{ questions.length }}</b> </span><br/>
-      </div>
-    </div>
-
-    <div class="mainBbti" style="text-align: center">
-      <h2 style="word-break: keep-all;">{{ questions[questionIndex] }}</h2>
-      <div id="imgWrapper">
-        <img :src="getImgUrl()" style="max-height: 100%; max-width: 100%;"/>
-      </div>
-      <!-- <img :src="blah" > -->
-    </div>
-
-    <div class="bottomBbti">
-      <div class="btnWrapper fontNexonBold">
-        <div>
-          <v-btn v-for="(item, index) in selections[questionIndex]" :key="index" depressed rounded x-large color="#dff3e3" class="btnMain" @click="selectAnswer(index)">
-            {{item}}
-          </v-btn>
+        <div class="topBbti fontNexonRegular">
+          <div style="line-height: 5vh; text-align: center">
+            <span><b>{{ questionIndex + 1 }} / {{ questions.length }}</b> </span><br/>
+          </div>
         </div>
+
+        <div class="mainBbti" style="text-align: center">
+          <h2 style="word-break: keep-all;">{{ questions[questionIndex] }}</h2>
+          <div id="imgWrapper">
+            <img :src="getImgUrl()" style="max-height: 100%; max-width: 100%;"/>
+          </div>
+          <!-- <img :src="blah" > -->
+        </div>
+
+        <div class="bottomBbti">
+          <div class="btnWrapper fontNexonBold">
+            <div>
+              <v-btn v-for="(item, index) in selections[questionIndex]" :key="index" depressed rounded x-large color="#dff3e3" class="btnMain" @click="selectAnswer(index)">
+                {{item}}
+              </v-btn>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
-
   </div>
 </template>
 
@@ -131,8 +135,50 @@ export default {
 </script>
 
 <style scoped>
-body {
-  background-color: white !important;
-}
+  body {
+    background-color: white !important;
+  }
 
+    #app {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  @media screen and (max-width: 550px) {
+    body {
+      background-image: url("/static/images/pattern/leaves.png");
+      background-position: center;
+      background-repeat: repeat;
+    }
+  }
+
+  @media screen and (min-width: 551px) {
+    body {
+      background-color: #ccc;
+    }
+    #app {
+      max-width: 550px !important;
+      margin: 0 auto !important;
+      background-image: url("/static/images/pattern/leaves.png");
+      background-position: center;
+      background-repeat: repeat;
+    }
+  }
+
+  @media screen and (max-height: 600px) {
+    #app2 {
+      height: 100%;
+      min-height: 600px;
+    }
+  }
+
+  @media screen and (min-height: 601px) {
+    #app2 {
+      position: relative;
+      top: 50%;
+      margin-top: -300px;
+      height: 600px !important;
+    }
+  }
 </style>

@@ -1,31 +1,35 @@
 <template>
-  <div class="container" style="padding: 0px !important">
-    <img :src="getImgUrl()" style="displat: block; width: 100%;"/>
+  <div id="app">
+    <div id="app2">
+      <div class="container" style="padding: 0px !important">
+        <img :src="getImgUrl()" style="displat: block; width: 100%;"/>
 
-    <div style="margin: 0 5%; border-radius: 5px; background-color: #111">
-      <v-alert
-          border="top"
-          style="background-color: rgb(255 255 255 / 90%)"
-          class="fontNexonRegular lhWide"
-          v-html="resultText[resultId-1]"
-        >
-      </v-alert>
-    </div>
+        <div style="margin: 0 5%; border-radius: 5px; background-color: #111">
+          <v-alert
+              border="top"
+              style="background-color: rgb(255 255 255 / 90%)"
+              class="fontNexonRegular lhWide"
+              v-html="resultText[resultId-1]"
+            >
+          </v-alert>
+        </div>
 
-    <div class="bottomBbti" style="height: 15vh;">
-      <div class="btnWrapper fontNexonBold">
-        <button id="btnKakao" data-html2canvas-ignore="true">
-          <img class="btnImg" src="/static/icons/kakao-talk-basic.png" />
-        </button>
-        <button @click="captureImage" data-html2canvas-ignore="true">
-          <img class="btnImg" src="/static/icons/Download-green.png" />
-        </button>
-        <button @click="redo" data-html2canvas-ignore="true">
-          <img class="btnImg" src="/static/icons/redo-yellow.png" />
-        </button>
+        <div class="bottomBbti" style="height: 15vh;">
+          <div class="btnWrapper fontNexonBold">
+            <button id="btnKakao" data-html2canvas-ignore="true">
+              <img class="btnImg" src="/static/icons/kakao-talk-basic.png" />
+            </button>
+            <button @click="captureImage" data-html2canvas-ignore="true">
+              <img class="btnImg" src="/static/icons/Download-green.png" />
+            </button>
+            <button @click="redo" data-html2canvas-ignore="true">
+              <img class="btnImg" src="/static/icons/redo-yellow.png" />
+            </button>
+          </div>
+        </div>
+
       </div>
     </div>
-
   </div>
 </template>
 
@@ -148,7 +152,44 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+  #app {
+    position: relative;
+    overflow: hidden;
+  }
+
+  @media screen and (max-width: 550px) {
+    body {
+      background-image: url("/static/images/pattern/leaves.png");
+      background-position: center;
+      background-repeat: repeat;
+    }
+  }
+
+  @media screen and (min-width: 551px) {
+    body {
+      background-color: #ccc;
+    }
+    #app {
+      max-width: 550px !important;
+      margin: 0 auto !important;
+      background-image: url("/static/images/pattern/leaves.png");
+      background-position: center;
+      background-repeat: repeat;
+    }
+  }
+
+  @media screen and (max-height: 600px) {
+  }
+
+  @media screen and (min-height: 601px) {
+    #app2 {
+      position: relative;
+      top: 50%;
+      margin-top: -300px;
+    }
+  }
+
 #app {
   height: none !important;
   background-color: white !important;

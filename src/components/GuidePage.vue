@@ -1,41 +1,45 @@
 <template>
-  <div class="container">
-    <!-- <input type="text" placeholder="토끼의 이름은?"/> -->
-    <div class="topBbti">
-      <div class="msg">
-        <span class="fontNexonRegular">
-          내 토끼의 발바닥 사진을 올려주시면<br>결과에 반영할게요!<br><br>
-          아래 분홍색 상자처럼<br><b>발바닥만</b> 잘라서 보내주세요!
-        </span>
+  <div id="app">
+    <div id="app2">
+      <div class="container">
+        <!-- <input type="text" placeholder="토끼의 이름은?"/> -->
+        <div class="topBbti">
+          <div class="msg">
+            <span class="fontNexonRegular">
+              내 토끼의 발바닥 사진을 올려주시면<br>결과에 반영할게요!<br><br>
+              아래 분홍색 상자처럼<br><b>발바닥만</b> 잘라서 보내주세요!
+            </span>
+          </div>
+        </div>
+
+        <div class="mainBbti">
+          <div class="imgSection"></div>
+        </div>
+
+        <div class="bottomBbti">
+          <div class="btnWrapper fontNexonBold">
+            <v-btn depressed rounded x-large color="#cee6b4" class="btnMain"
+                  @click="btnUploadImage">
+                  업로드
+            </v-btn>
+            <input type="file" id="uploadBtn" name="camera" capture="camera" accept="file_extension|image/*" @change="uploadImage"/>
+
+            <v-btn depressed rounded x-large color="#cee6b4" class="btnMain" @click="goQuestion">그냥 할래요</v-btn>
+            <input type="button" id="skipBtn">
+          </div>
+        </div>
+
+        <!-- 사진 확인 -->
+        <vue-modaltor  :visible="showCheck" @hide="hideModal">
+          <img :src=url id="check_img" />
+          <div class="btnWrapper">
+            <v-btn color="primary" text @click="btnUploadImage">다시 선택</v-btn>
+            <v-btn color="primary" text @click="sendUploadImage">시작</v-btn>
+          </div>
+        </vue-modaltor>
+
       </div>
     </div>
-
-    <div class="mainBbti">
-      <div class="imgSection"></div>
-    </div>
-
-    <div class="bottomBbti">
-      <div class="btnWrapper fontNexonBold">
-        <v-btn depressed rounded x-large color="#cee6b4" class="btnMain"
-              @click="btnUploadImage">
-              업로드
-        </v-btn>
-        <input type="file" id="uploadBtn" name="camera" capture="camera" accept="file_extension|image/*" @change="uploadImage"/>
-
-        <v-btn depressed rounded x-large color="#cee6b4" class="btnMain" @click="goQuestion">그냥 할래요</v-btn>
-        <input type="button" id="skipBtn">
-      </div>
-    </div>
-
-    <!-- 사진 확인 -->
-    <vue-modaltor  :visible="showCheck" @hide="hideModal">
-      <img :src=url id="check_img" />
-      <div class="btnWrapper">
-        <v-btn color="primary" text @click="btnUploadImage">다시 선택</v-btn>
-        <v-btn color="primary" text @click="sendUploadImage">시작</v-btn>
-      </div>
-    </vue-modaltor>
-
   </div>
 </template>
 
@@ -132,4 +136,48 @@ input[type="file"] {
   font-weight: bold;
   text-align: center;
 }
+
+  #app {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  @media screen and (max-width: 550px) {
+    body {
+      background-image: url("/static/images/pattern/leaves.png");
+      background-position: center;
+      background-repeat: repeat;
+    }
+  }
+
+  @media screen and (min-width: 551px) {
+    body {
+      background-color: #ccc;
+    }
+    #app {
+      max-width: 550px !important;
+      margin: 0 auto !important;
+      background-image: url("/static/images/pattern/leaves.png");
+      background-position: center;
+      background-repeat: repeat;
+    }
+  }
+
+  @media screen and (max-height: 600px) {
+    #app2 {
+      height: 100%;
+      min-height: 600px;
+    }
+  }
+
+  @media screen and (min-height: 601px) {
+    #app2 {
+      position: relative;
+      top: 50%;
+      margin-top: -300px;
+      height: 600px !important;
+    }
+  }
+
 </style>
