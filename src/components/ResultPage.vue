@@ -44,6 +44,7 @@
 
 <script>
 import html2canvas from 'html2canvas'
+import {send} from '@/components/SlackBot.js'
 
 export default {
   name: 'ResultPage',
@@ -72,37 +73,43 @@ export default {
     },
 
     shareKakao () {
-      console.log(this.getImgWebUrl())
-      // let Kakao = {}
-      Kakao.Link.createDefaultButton({
-        container: '#btnKakao',
-        objectType: 'feed',
-        content: {
-          title: '내 토끼는 무슨 유형?',
-          description: this.resultTitle[this.resultId - 1].replace('<br>', ' '),
-          imageUrl: this.getImgWebUrl(),
-          link: {
-            webUrl: this.envHost,
-            mobileWebUrl: this.envHost
-          }
-        },
-        buttons: [
-          {
-            title: '결과 보기',
-            link: {
-              webUrl: this.envHost + '/#/result/' + this.resultId,
-              mobileWebUrl: this.envHost + '/#/result/' + this.resultId
-            }
-          },
-          {
-            title: '나도 해보기',
+      // console.log(this.getImgWebUrl())
+      
+      try {
+        Kakao.Link.createDefaultButton({
+          container: '#btnKakao',
+          objectType: 'feed',
+          content: {
+            title: '내 토끼는 무슨 유형?',
+            description: this.resultTitle[this.resultId - 1].replace('<br>', ' '),
+            imageUrl: this.getImgWebUrl(),
             link: {
               webUrl: this.envHost,
               mobileWebUrl: this.envHost
             }
-          }
-        ]
-      })
+          },
+          buttons: [
+            {
+              title: '결과 보기',
+              link: {
+                webUrl: this.envHost + '/#/result/' + this.resultId,
+                mobileWebUrl: this.envHost + '/#/result/' + this.resultId
+              }
+            },
+            {
+              title: '나도 해보기',
+              link: {
+                webUrl: this.envHost,
+                mobileWebUrl: this.envHost
+              }
+            }
+          ]
+        })
+      }
+      catch (err) {
+        send('error', '카톡 공유에 실패했어요!')
+      }
+
     },
 
     captureImage (selector = 'body') {
