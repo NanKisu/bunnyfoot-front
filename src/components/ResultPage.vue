@@ -168,7 +168,7 @@ export default {
 
   @media screen and (min-width: 551px) {
     body {
-      background-color: #ccc;
+      background-color: #ccc !important;
     }
     #app {
       max-width: 550px !important;

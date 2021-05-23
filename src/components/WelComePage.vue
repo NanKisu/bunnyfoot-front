@@ -81,12 +81,14 @@ export default {
     }
     #app {
       background-image: url("/static/images/pattern/leaves.png");
+      background-position: center;
+      background-repeat: repeat;
     }
   }
 
   @media screen and (min-width: 551px) {
     body {
-      background-color: #ccc;
+      background-color: #ccc !important;
     }
     #app {
       max-width: 550px !important;
