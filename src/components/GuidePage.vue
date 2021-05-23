@@ -83,14 +83,6 @@ export default {
         localStorage.setItem('uploadImage', e.target.result)
         this.goQuestion()
       }
-
-      // 이미지 s3 업로드
-      // let fd = new FormData()
-      // fd.append('image', this.img)
-      // axios.post('http://localhost:8080/imageUpload', fd)
-      //   .then(resp => {
-      //     // this.imagePath = resp.data.path
-      //   })
     },
 
     hideModal () {

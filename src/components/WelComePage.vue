@@ -36,7 +36,6 @@ export default {
   methods: {
     getPageView () {
       let url = this.$store.state.apiUrl + 'pageView'
-      // console.log(url)
 
       axios.get(url)
         .then(rest => {

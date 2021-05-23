@@ -73,7 +73,7 @@ export default {
 
     shareKakao () {
       console.log(this.getImgWebUrl())
-      let Kakao = {}
+      // let Kakao = {}
       Kakao.Link.createDefaultButton({
         container: '#btnKakao',
         objectType: 'feed',

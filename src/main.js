@@ -5,12 +5,12 @@ import App from './App'
 import router from './router'
 import vuetify from '@/plugins/vuetify'
 import {store} from './store'
-// import {KAKAO_APP_KEY} from './password'
+import {KAKAO_APP_KEY} from './password'
 
 Vue.config.productionTip = false
 
-// Kakao.init(KAKAO_APP_KEY)
-// console.log(Kakao.isInitialized())
+Kakao.init(KAKAO_APP_KEY)
+console.log(Kakao.isInitialized())
 
 /* eslint-disable no-new */
 new Vue({
