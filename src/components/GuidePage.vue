@@ -149,6 +149,9 @@ input[type="file"] {
       background-position: center;
       background-repeat: repeat;
     }
+    #app {
+      background-image: url("/static/images/pattern/leaves.png");
+    }
   }
 
   @media screen and (min-width: 551px) {
