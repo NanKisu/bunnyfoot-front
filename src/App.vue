@@ -52,16 +52,16 @@ export default {
 
   @media screen and (max-height: 600px) {
     #app2 {
-      height: 100% !important;
-      min-height: 600px !important;
+      height: 100%;
+      min-height: 600px;
     }
   }
 
   @media screen and (min-height: 601px) {
     #app2 {
       position: relative;
-      top: 50% !important;
-      margin-top: -300px !important;
+      top: 50%;
+      margin-top: -300px;
       height: 600px !important;
     }
   }
