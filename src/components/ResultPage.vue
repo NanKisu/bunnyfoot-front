@@ -68,12 +68,12 @@ export default {
     },
 
     getImgWebUrl () {
-      // return (location.protocol + '//' + location.host + this.getImgUrl()).replace(".png", "_kakao.png")
-      return (this.envHost + this.getImgUrl()).replace('.png', '_kakao.png')
+      // return (this.envHost + this.getImgUrl()).replace('.png', '_kakao.png')
+      return (this.envHost + this.getImgUrl())
     },
 
     shareKakao () {
-      // console.log(this.getImgWebUrl())
+      console.log(this.getImgWebUrl())
       
       try {
         Kakao.Link.createDefaultButton({
