@@ -15,7 +15,14 @@ export default {
     height: 100%;
   }
 
-  body{
+  body {
     height: 100%;
   }
+
+  @media screen and (min-width: 551px) {
+    body {
+      background-color: #ccc !important;
+    }
+  }
+
 </style>

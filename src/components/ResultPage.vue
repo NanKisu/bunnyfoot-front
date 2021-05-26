@@ -158,17 +158,9 @@ export default {
   }
 
   @media screen and (max-width: 550px) {
-    body {
-      background-image: url("/static/images/pattern/leaves.png");
-      background-position: center;
-      background-repeat: repeat;
-    }
   }
 
   @media screen and (min-width: 551px) {
-    body {
-      background-color: #ccc !important;
-    }
     #app {
       max-width: 550px !important;
       margin: 0 auto !important;
@@ -193,10 +185,6 @@ export default {
   height: none !important;
   background-color: white !important;
   background-image: none !important;
-}
-
-body {
-  background-color: white !important;
 }
 
 #app2{

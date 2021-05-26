@@ -102,10 +102,6 @@ export default {
 </script>
 
 <style scoped>
-body {
-  background-color: white !important;
-}
-
 h4 {
   margin-top: 5vh;
   text-align: center;
@@ -144,11 +140,6 @@ input[type="file"] {
   }
 
   @media screen and (max-width: 550px) {
-    body {
-      background-image: url("/static/images/pattern/leaves.png");
-      background-position: center;
-      background-repeat: repeat;
-    }
     #app {
       background-image: url("/static/images/pattern/leaves.png");
       background-position: center;
@@ -157,9 +148,6 @@ input[type="file"] {
   }
 
   @media screen and (min-width: 551px) {
-    body {
-      background-color: #ccc !important;
-    }
     #app {
       max-width: 550px !important;
       margin: 0 auto !important;

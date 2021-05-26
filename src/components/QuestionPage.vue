@@ -135,22 +135,13 @@ export default {
 </script>
 
 <style scoped>
-  body {
-    background-color: white !important;
-  }
-
-    #app {
+  #app {
     position: relative;
     height: 100%;
     overflow: hidden;
   }
 
   @media screen and (max-width: 550px) {
-    body {
-      background-image: url("/static/images/pattern/leaves.png");
-      background-position: center;
-      background-repeat: repeat;
-    }
     #app {
       background-image: url("/static/images/pattern/leaves.png");
       background-position: center;
@@ -159,9 +150,6 @@ export default {
   }
 
   @media screen and (min-width: 551px) {
-    body {
-      background-color: #ccc !important;
-    }
     #app {
       max-width: 550px !important;
       margin: 0 auto !important;
