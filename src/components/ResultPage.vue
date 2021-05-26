@@ -7,7 +7,6 @@
         <div style="margin: 0 5%; border-radius: 5px; background-color: #111">
           <v-alert
               border="top"
-              style="background-color: rgb(255 255 255 / 90%)"
               class="fontNexonRegular lhWide"
               v-html="resultText[resultId-1]"
             >
