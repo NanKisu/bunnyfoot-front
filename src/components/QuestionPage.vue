@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="app2">
-      <div class="container">
+      <div class="container"  v-if="questionIndex<10">
 
         <div class="topBbti fontNexonRegular">
           <div style="line-height: 5vh; text-align: center">
@@ -11,7 +11,7 @@
 
         <div class="mainBbti" style="text-align: center">
           <h2 style="word-break: keep-all;">{{ questions[questionIndex] }}</h2>
-          <div id="imgWrapper" v-if="questionIndex<10">
+          <div id="imgWrapper">
             <img :src="getImgUrl()" style="max-height: 100%; max-width: 100%;"/>
           </div>
           <!-- <img :src="blah" > -->
