@@ -13,6 +13,12 @@ Vue.config.productionTip = false
 Kakao.init(KAKAO_APP_KEY)
 console.log(Kakao.isInitialized())
 
+Vue.use(VueGtag, {
+  config: {
+    id: 'UA-193115120-1'
+  }
+}, router)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
@@ -23,8 +29,3 @@ new Vue({
   template: '<App/>'
 })
 
-Vue.use(VueGtag, {
-  config: {
-    id: 'UA-193115120-1'
-  }, router
-})
