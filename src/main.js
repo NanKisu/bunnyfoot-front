@@ -26,5 +26,5 @@ new Vue({
 Vue.use(VueGtag, {
   config: {
     id: 'UA-193115120-1'
-  }
+  }, router
 })
