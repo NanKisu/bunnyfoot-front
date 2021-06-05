@@ -43,7 +43,7 @@ export default {
 
       axios.get(url)
         .then(rest => {
-          this.participant = rest.data - 110
+          this.participant = rest.data
           this.pageViewVisible = true
         })
         .catch(() => {
