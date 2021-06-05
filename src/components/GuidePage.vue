@@ -45,6 +45,7 @@
 
 <script>
 import CheckUploadPage from '@/components/CheckUploadPage.vue'
+import {send} from '@/components/SlackBot.js'
 
 export default {
   components: {
@@ -74,7 +75,7 @@ export default {
         this.url = URL.createObjectURL(this.img)
         this.showCheck = true
       } catch (e) {
-        alert(e)
+        send('error', e)
       }
     },
 
