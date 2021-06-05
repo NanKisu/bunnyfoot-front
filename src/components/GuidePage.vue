@@ -68,7 +68,6 @@ export default {
 
     // 사진 데이터 선택
     uploadImage (e) {
-      alert(1)
       try {
         this.img = e.target.files[0]
 
