@@ -76,6 +76,7 @@ export default {
         this.url = URL.createObjectURL(this.img)
         this.showCheck = true
       } catch (e) {
+        alert(e)
         send('error', 'uploadImage error')
       }
       alert(2)
