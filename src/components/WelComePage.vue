@@ -51,7 +51,6 @@ export default {
     },
 
     clickMainStart () {
-      send('welcome', '새로운 유저가 테스트를 시작했어요!')
       this.$router.push('/guide')
     }
   },

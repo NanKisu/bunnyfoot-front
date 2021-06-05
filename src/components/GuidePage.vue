@@ -68,6 +68,7 @@ export default {
 
     // 사진 데이터 선택
     uploadImage (e) {
+      alert(1)
       try {
         this.img = e.target.files[0]
 
@@ -77,6 +78,7 @@ export default {
       } catch (e) {
         send('error', e)
       }
+      alert(2)
     },
 
     // 사진 데이터 확인 후 전송
