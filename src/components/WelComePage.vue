@@ -4,7 +4,7 @@
       <div class="container">
 
         <div class="topBbti">
-          <h1 class="fontYeoljeongdo font3em msgMt3vh">B<span id="bunny">unny</span>BTI</h1>
+          <h1 class="fontYeoljeongdo font3em msgMt3vh">B<span id="bunny">unny</span>BTI-DEV</h1>
         </div>
 
         <div class="mainBbti">
@@ -26,7 +26,6 @@
 </template>
 
 <script>
-import {send} from '@/components/SlackBot.js'
 import axios from 'axios'
 
 export default {
