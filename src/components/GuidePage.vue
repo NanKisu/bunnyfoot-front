@@ -67,11 +67,15 @@ export default {
 
     // 사진 데이터 선택
     uploadImage (e) {
-      this.img = e.target.files[0]
+      try {
+        this.img = e.target.files[0]
 
-      // 사진 확인용
-      this.url = URL.createObjectURL(this.img)
-      this.showCheck = true
+        // 사진 확인용
+        this.url = URL.createObjectURL(this.img)
+        this.showCheck = true
+      } catch (e) {
+        alert(e)
+      }
     },
 
     // 사진 데이터 확인 후 전송
