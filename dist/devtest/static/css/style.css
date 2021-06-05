@@ -1,0 +1,180 @@
+/* 이미지 수직 가운데 정렬 */
+img {
+    vertical-align: middle;
+}
+
+h1 {
+    font-family: 'NEXON Lv1 Gothic OTF';
+}
+h2 {
+    font-family: 'NEXON Lv1 Gothic OTF';
+}
+h3 {
+    font-family: 'NEXON Lv1 Gothic OTF';
+}
+h4 {
+    font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+.container{
+    height: 100% !important;
+    padding: 0 12px !important;
+}
+#imgWrapper {
+    line-height: 300px;
+    height: 300px;
+    text-align: center
+}
+
+.topBbti {
+    height: 105px;
+}
+
+.mainBbti {
+    height: 285px;
+}
+
+.imgSection {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: contain;
+  }
+
+.btnWrapper {
+    text-align: center;
+}
+
+.btnMain:first-child {
+    margin-top: 60px !important;
+}
+
+.btnMain {
+    margin-top: 20px;
+    width: 100%;
+    max-width: 500px;
+    height: 30%;
+
+    color: white;
+    /* font-size: 3em; */
+}
+
+.btnFixed {
+    position: fixed;
+    bottom: 0;
+}
+
+.bottomBbti{
+    height: 210px;
+}
+
+@font-face {
+    font-family: 'RixYeoljeongdo_Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/RixYeoljeongdo_Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'CookieRun-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/CookieRun-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NEXON Lv1 Gothic OTF Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/NEXON Lv1 Gothic OTF Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'KOTRA_BOLD-Bold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10-21@1.1/KOTRA_BOLD-Bold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.fontYeoljeongdo {
+    font-family: "RixYeoljeongdo_Regular";
+}
+
+.fontCookierun {
+    font-family: "CookieRun-Regular";
+    font-size: 1.1em;
+}
+
+.fontNexonRegular {
+    font-family: 'NEXON Lv1 Gothic OTF';
+}
+
+.fontNexonBold {
+    font-family: 'NEXON Lv1 Gothic OTF Bold';
+}
+
+.fontKotraBold {
+    font-family: 'KOTRA_BOLD-Bold';
+}
+
+.msg {
+    text-align: center;
+}
+
+.msgMt2vh {
+    text-align: center;
+    margin-top: 2%;
+}
+
+.msgMt3vh {
+    text-align: center;
+    margin-top: 3%;
+}
+
+.msgMt5vh {
+    text-align: center;
+    margin-top: 5%;
+}
+
+.msgMt8vh {
+    text-align: center;
+    margin-top: 8%;
+}
+
+.font2em {
+    font-size: 2em;
+}
+
+.font3em {
+    font-size: 3em;
+}
+
+.lhWide {
+    line-height: 1.5em;
+    letter-spacing: 0.05em;
+}
+
+.btnImg {
+    /* height: 7vh; */
+    opacity: 0.8;
+    /* flex: 1; */
+    width: 60px;
+    margin: 5px;
+    /* box-sizing: border-box; */
+}
+
+div.btnImg {
+    position: absolute;
+    left: 50%;
+}
+
+.btnFlex {
+    display: flex;
+}
