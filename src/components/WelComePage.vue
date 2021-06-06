@@ -52,7 +52,12 @@ export default {
 
     clickMainStart () {
       send('welcome', '새로운 유저가 테스트를 시작했어요!')
-      this.$router.push('/guide')
+      
+      if (navigator.appVersion.indexOf('Mac') !== -1) {
+        this.$router.push('/question')
+      } else {
+        this.$router.push('/guide')
+      }
     }
   },
 
