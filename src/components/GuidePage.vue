@@ -88,15 +88,14 @@ export default {
       // this.showCheck = false
 
       const reader = new FileReader()
-      alert('1')
       reader.readAsDataURL(this.img)
-      alert('2')
       // console.log('before: ')
       // reader.readasdataurl
       reader.onload = (e) => {
-        alert('3')
+        alert(e.target.result)
         localStorage.removeItem('uploadImage')
         localStorage.setItem('uploadImage', e.target.result)
+        alert('1')
         this.goQuestion()
       }
     },
@@ -107,6 +106,7 @@ export default {
 
     // 질문 페이지로 이동
     goQuestion (e) {
+      alert('2')
       this.$router.push('/question')
     }
   }
