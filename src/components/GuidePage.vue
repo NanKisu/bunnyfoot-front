@@ -34,8 +34,8 @@
         <vue-modaltor  :visible="showCheck" @hide="hideModal">
           <img :src=url id="check_img" />
           <div class="btnWrapper">
-            <v-btn color="primary" text @click="btnUploadImage">다시 선택</v-btn>
-            <v-btn color="primary" text @click="sendUploadImage">시작</v-btn>
+            <v-btn color="primary" @click="btnUploadImage">다시 선택</v-btn>
+            <v-btn color="primary" @click="sendUploadImage">시작</v-btn>
           </div>
         </vue-modaltor>
 
@@ -75,11 +75,12 @@ export default {
         // 사진 확인용
         this.url = URL.createObjectURL(this.img)
         this.showCheck = true
+
+        console.log(this.url)
       } catch (e) {
         alert(e)
         send('error', 'uploadImage error')
       }
-      alert(2)
     },
 
     // 사진 데이터 확인 후 전송
