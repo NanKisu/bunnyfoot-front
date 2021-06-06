@@ -45,6 +45,7 @@
 
 <script>
 import CheckUploadPage from '@/components/CheckUploadPage.vue'
+import {send} from '@/components/SlackBot.js'
 
 export default {
   components: {
@@ -67,25 +68,33 @@ export default {
 
     // 사진 데이터 선택
     uploadImage (e) {
-      this.img = e.target.files[0]
+      try {
+        this.img = e.target.files[0]
 
-      // 사진 확인용
-      this.url = URL.createObjectURL(this.img)
-      this.showCheck = true
+        // 사진 확인용
+        this.url = URL.createObjectURL(this.img)
+        this.showCheck = true
+      } catch (e) {
+        send('error', e)
+      }
     },
 
     // 사진 데이터 확인 후 전송
     sendUploadImage () {
+      try {
       // this.showCheck = false
 
-      const reader = new FileReader()
-      reader.readAsDataURL(this.img)
-      console.log('before: ')
-      // reader.readasdataurl
-      reader.onload = (e) => {
-        localStorage.removeItem('uploadImage')
-        localStorage.setItem('uploadImage', e.target.result)
-        this.goQuestion()
+        const reader = new FileReader()
+        reader.readAsDataURL(this.img)
+        console.log('before: ')
+        // reader.readasdataurl
+        reader.onload = (e) => {
+          localStorage.removeItem('uploadImage')
+          localStorage.setItem('uploadImage', e.target.result)
+          this.goQuestion()
+        }
+      } catch (e) {
+        send('error', e)
       }
     },
 
