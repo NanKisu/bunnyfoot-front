@@ -34,8 +34,8 @@
         <vue-modaltor  :visible="showCheck" @hide="hideModal">
           <img :src=url id="check_img" />
           <div class="btnWrapper">
-            <v-btn color="primary" @click="btnUploadImage">다시 선택</v-btn>
-            <v-btn color="primary" @click="sendUploadImage">시작</v-btn>
+            <v-btn color="primary" text @click="btnUploadImage">다시 선택</v-btn>
+            <v-btn color="primary" text @click="sendUploadImage">시작</v-btn>
           </div>
         </vue-modaltor>
 
@@ -88,10 +88,13 @@ export default {
       // this.showCheck = false
 
       const reader = new FileReader()
+      alert('1')
       reader.readAsDataURL(this.img)
-      console.log('before: ')
+      alert('2')
+      // console.log('before: ')
       // reader.readasdataurl
       reader.onload = (e) => {
+        alert('3')
         localStorage.removeItem('uploadImage')
         localStorage.setItem('uploadImage', e.target.result)
         this.goQuestion()
