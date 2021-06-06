@@ -85,6 +85,7 @@ export default {
 
     // 사진 데이터 확인 후 전송
     sendUploadImage () {
+      alert('clicked')
       // this.showCheck = false
 
       const reader = new FileReader()
@@ -92,7 +93,6 @@ export default {
       // console.log('before: ')
       // reader.readasdataurl
       reader.onload = (e) => {
-        localStorage.setItem('uploadImage', '')
         localStorage.setItem('uploadImage', e.target.result)
         alert('1')
         this.goQuestion()
