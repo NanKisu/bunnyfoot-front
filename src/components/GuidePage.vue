@@ -93,7 +93,10 @@ export default {
       // reader.readasdataurl
       reader.onload = (e) => {
         alert(e.target.result)
-        localStorage.removeItem('uploadImage')
+        if(localStorage.getItem('uploadImage')) {
+          localStorage.removeItem('uploadImage')
+          alert('removed')
+        }
         localStorage.setItem('uploadImage', e.target.result)
         alert('1')
         this.goQuestion()
