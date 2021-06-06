@@ -22,7 +22,8 @@
                   @click="btnUploadImage">
                   업로드
             </v-btn>
-            <input type="file" id="uploadBtn" name="camera" capture="camera" accept="file_extension" @change="uploadImage"/>
+            <!-- <input type="file" id="uploadBtn" name="camera" capture="camera" accept="file_extension|image/*" @change="uploadImage"/> -->
+            <input type="file" id="uploadBtn" name="camera" @change="uploadImage"/>
 
             <v-btn depressed rounded x-large color="#cee6b4" class="btnMain" @click="goQuestion">그냥 할래요</v-btn>
             <input type="button" id="skipBtn">
