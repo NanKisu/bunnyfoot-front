@@ -92,7 +92,8 @@ export default {
       // console.log('before: ')
       // reader.readasdataurl
       reader.onload = (e) => {
-        alert(e.target.result)
+        console.log(localStorage.getItem('uploadImage'))
+        
         if(localStorage.getItem('uploadImage')) {
           localStorage.removeItem('uploadImage')
           alert('removed')
