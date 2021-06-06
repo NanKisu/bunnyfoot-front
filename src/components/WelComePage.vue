@@ -50,7 +50,11 @@ export default {
     },
 
     clickMainStart () {
-      this.$router.push('/guide')
+      if (navigator.appVersion.indexOf('Mac') !== -1) {
+        this.$router.push('/question')
+      } else {
+        this.$router.push('/guide')
+      }
     }
   },
 
